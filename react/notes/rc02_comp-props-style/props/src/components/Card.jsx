@@ -6,7 +6,7 @@ const Card = ({ name, tel, src }) => {
   return (
     <div>
         <h2>Hello {name}</h2>
-        <Photo img={src}/>
+        <Photo src={src}/>
         <p>Telephone: {tel}</p>        
     </div>
   )

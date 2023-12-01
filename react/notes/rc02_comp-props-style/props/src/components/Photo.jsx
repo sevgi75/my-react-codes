@@ -1,7 +1,7 @@
-const Photo = ({ img }) => {
+const Photo = ({ src }) => {
   return (
     <div>
-        <img src={img} alt="kid" />
+        <img src={src} alt="kid" />
     </div>
   )
 }
