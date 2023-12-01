@@ -1,12 +1,13 @@
 import Photo from "./Photo"
 
 
-const Card = () => {
+const Card = ({ name, tel, src }) => {
+    // console.log(props);
   return (
     <div>
-        <h2>Hello Ahmet</h2>
-        <Photo />
-        <p>Telephone: +49 555 5678</p>        
+        <h2>Hello {name}</h2>
+        <Photo img={src}/>
+        <p>Telephone: {tel}</p>        
     </div>
   )
 }
