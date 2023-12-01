@@ -1,6 +1,14 @@
-import "./Card.css"
+//import "./Card.css"
+import CardStyle from "./Card.module.css"
+
 import data from "../../data"
 import Buton from "../buton/Buton";
+
+//*module.css'de derleyici CSS class'larini alarak bunlari unique
+//*olacak sekilde yeniden adlandirir.(Ornek:card_title_XaSde)
+//*Bu durumda,global scope problemi ortadan kalktigi icin stillerin
+//*baska class tarafindan ezilmesi(overriding) engellenir.
+//*Module-CSS, Webpack, Browsify gibi tool'lar ile kullanilabilir
 
 const Card = () => {
   // console.log(data);
@@ -8,7 +16,7 @@ const Card = () => {
     <div>
       {data.map(({ id, language, img, btnName }) => (
         <div key={id}>
-          <h1>{language}</h1>
+          <h1 className={CardStyle.title}>{language}</h1>
           <img src={img} alt="" />
           <Buton name={btnName} />
         </div>
