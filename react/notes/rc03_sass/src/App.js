@@ -4,12 +4,15 @@ import Header from "./components/Header"
 
 import "./scss/app.scss"
 import data from "./data"
+export const divStyle = {display:"flex", alignItems:"center", justifyContent:"center", gap:"1rem", flexDirection:"column"}
 
 function App() {
   return (
     <>
       <Header />
-      <Card  veri={data} />
+      <div>
+        <Card  veri={data} />
+      </div>
       <Footer />
     </>
   )

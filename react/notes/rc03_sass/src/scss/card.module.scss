@@ -1,0 +1,29 @@
+@import "variables";
+
+.cardDiv {
+    background-color: $paleta-pastel-3;
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    & .smlBtn {
+        width: 50px;
+        padding: 5px 10px;
+        margin-right: 10px;
+        background-color: $paleta-pastel-5;
+        border: none;
+        border-radius: 10px;
+    }
+    & .lrgBtn {
+        width: 100px;
+        padding: 5px 10px;
+        background-color: $paleta-pastel-1;
+        border: none;
+        border-radius: 10px;
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+    & *{
+        margin: 5px;
+    }
+}
