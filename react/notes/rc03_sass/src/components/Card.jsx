@@ -7,6 +7,12 @@ const Card = ({veri}) => {
       {veri.map(({ id, name, job, comment, img}) => (
         <div>
           <h2>{name}</h2>
+          <h3>{job}</h3>
+          <img src={img} alt="img" width={"100px"} />
+          <div>
+            <button>Small</button>
+            <button>Large</button>
+          </div>
         </div>
       ))}
     </div>
