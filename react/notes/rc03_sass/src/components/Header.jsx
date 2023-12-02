@@ -1,9 +1,10 @@
+import "../scss/header.scss"
 
 const Header = () => {
   return (
-    <div >
+    <header >
       <h1>COMMENTS</h1>
-    </div>
+    </header>
   )
 }
 
