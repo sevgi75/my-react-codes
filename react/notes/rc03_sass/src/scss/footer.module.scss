@@ -1,0 +1,9 @@
+@import "variables";
+//Module-CSS yapisi benzer sekilde SASS la birlikte kullanilabilir
+//Bu sekilde global namespace problemi hallolmus olur
+
+.footer {
+    padding: 2rem;
+    background-color: $paleta-pastel-4;
+    font-family: cursive;
+}
