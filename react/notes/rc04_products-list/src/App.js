@@ -4,11 +4,11 @@ import {products,categories} from "./helper/data";
 
 
 function App() {
-  console.log(products);
+  // console.log(products);
   return (
     <div>
       <Header categories={categories} text="Products List"/>
-      <Products />
+      <Products products={products}/>
     </div>
   )
 }
