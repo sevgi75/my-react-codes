@@ -1,6 +1,7 @@
 import Header from "./components/header/Header";
 import Products from "./components/products/ProductsList";
 import {products,categories} from "./helper/data";
+import "./App.scss";
 
 
 function App() {

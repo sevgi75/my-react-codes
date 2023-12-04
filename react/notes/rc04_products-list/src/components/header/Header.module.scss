@@ -1,0 +1,22 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.header {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    margin-top: 5rem;
+    h1 {
+        font-size: 2.3rem;
+        margin-bottom: 1rem;
+        color: $cardNavBgColor;
+    }
+    .btns {
+        // display: flex;
+        // flex-wrap: wrap;
+        // justify-content: center;
+        // align-items: center;
+        // gap: 1rem;
+        @include flex(row, center, 1rem)
+    }
+}
