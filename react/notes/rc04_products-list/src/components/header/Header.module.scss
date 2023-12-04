@@ -17,6 +17,17 @@
         // justify-content: center;
         // align-items: center;
         // gap: 1rem;
-        @include flex(row, center, 1rem)
+        @include flex(row, center, 1rem);
+        button {
+            padding: 1rem;
+            border-radius: 1rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 1s;
+            &:hover {
+                background-color: $btnHoverColor;
+            }
+        }
     }
 }
