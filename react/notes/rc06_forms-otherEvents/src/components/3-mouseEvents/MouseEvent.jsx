@@ -3,8 +3,26 @@ import { useState } from "react"
 const MouseEvent = () => {
   const [visible, setVisible] = useState(false)
 
+  const [coordX, setCoordX] = useState()
+  const [coordY, setCoordY] = useState()
+
+  const handleMouseMove = (e) => {
+    //? Mutlak koordinatlar
+    // console.log("X:", e.pageX)
+    // console.log("Y:", e.pageY)
+
+    //? Göreceli koordinatlar
+    // console.log("RX:", e.nativeEvent.offsetX)
+    // console.log("RY:", e.nativeEvent.offsetY)
+
+    // setCoordX(e.pageX)
+    // setCoordY(e.pageY)
+    setCoordX(e.nativeEvent.offsetX)
+    setCoordY(e.nativeEvent.offsetY)
+  }
+
   return (
-    <div className="container text-center d-flex flex-column align-items-center mt-4">
+    <div className="container text-center d-flex flex-column align-items-center mt-4" onMouseMove={handleMouseMove}>
       <h2 className="text-danger">MOUSE EVENTS</h2>
 
       <div 
@@ -27,7 +45,7 @@ const MouseEvent = () => {
         todo item 3
       </div>
 
-      <p>X: and Y:</p>
+      <p>X: {coordX} and Y: {coordY}</p>
     </div>
   )
 }
