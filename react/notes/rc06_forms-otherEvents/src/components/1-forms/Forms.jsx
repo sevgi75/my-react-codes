@@ -13,8 +13,19 @@ const Forms = () => {
   }
   
   const handleFormSubmit = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     e.preventDefault()
+    alert(`
+    username: ${username},
+    email: ${email},
+    password: ${password}
+    `)
+
+    //? ileride bir submit islemin neticesinde verilerin nasil post edilebilecegini gostermek adina eklenmistir
+    //? const res = axios.post("url" {username, password, email})
+    //* Alternatif olarak
+    //?fetch("url",{method:"POST", data:{username, password, email}})
+    //? .then()
   }
 
   return (
