@@ -4,11 +4,14 @@ import Container from 'react-bootstrap/Container';
 import { useState } from 'react';
 
 const Forms = () => {
-  const [username, setUsername] = useState("")
+  const [username, setUsername] = useState("Ali Can")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const handleUsername = () => {}
+  const handleUsername = (e) => {
+    setUsername(e.target.value)
+  }
+  console.log(username);
 
   return (
   <Container className='mt-4'>
@@ -16,11 +19,14 @@ const Forms = () => {
       <h1 className='text-success'>FORMS</h1>
 
       <Form.Group className="mb-3" controlId="username">
-        <Form.Label>Hello</Form.Label>
+        <Form.Label>
+          {username && <span className='fw-bold'>Hello {username}</span>}
+          </Form.Label>
         <Form.Control 
         type="text" 
         placeholder="Username" 
-        onChange={handleUsername} />        
+        onChange={handleUsername}
+        value={username} />        
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="email">
