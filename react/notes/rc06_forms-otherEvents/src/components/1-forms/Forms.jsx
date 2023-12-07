@@ -11,11 +11,15 @@ const Forms = () => {
   const handleUsername = (e) => {
     setUsername(e.target.value)
   }
-  console.log(username);
+  
+  const handleFormSubmit = (e) => {
+    console.log(e.target.value);
+    e.preventDefault()
+  }
 
   return (
   <Container className='mt-4'>
-    <Form>
+    <Form onSubmit={handleFormSubmit}>
       <h1 className='text-success'>FORMS</h1>
 
       <Form.Group className="mb-3">
@@ -32,14 +36,25 @@ const Forms = () => {
         />        
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="email">
-        <Form.Label>Email:</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />        
+      <Form.Group className="mb-3">
+        <Form.Label>Email: <span className='fw-bold'>{email}</span></Form.Label>
+        <Form.Control 
+        type="email" 
+        placeholder="Enter email"
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
+        id='email' 
+        />        
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="password">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control 
+        type="password" 
+        placeholder="Password"
+        onChange={(e) => setPassword(e.target.value)}
+        value={password} 
+        />
       </Form.Group>
       
       <Button variant="success" type="submit">
