@@ -18,7 +18,7 @@ const Forms = () => {
     <Form>
       <h1 className='text-success'>FORMS</h1>
 
-      <Form.Group className="mb-3" controlId="username">
+      <Form.Group className="mb-3">
         <Form.Label>
           {username && <span className='fw-bold'>Hello {username}</span>}
           </Form.Label>
@@ -26,7 +26,10 @@ const Forms = () => {
         type="text" 
         placeholder="Username" 
         onChange={handleUsername}
-        value={username} />        
+        value={username}
+        id='username'
+        required 
+        />        
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="email">
