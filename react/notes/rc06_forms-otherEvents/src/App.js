@@ -8,8 +8,8 @@ function App() {
     <div>
       {/* <Forms /> */}
       {/* <FormsObject /> */}
-      <KeyboardClipboard />
-      {/* <MouseEvent /> */}
+      {/* <KeyboardClipboard /> */}
+      <MouseEvent />
     </div>
   )
 }
