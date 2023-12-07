@@ -14,13 +14,13 @@ const FormsObject = () => {
   const { username, password, email } = data
 
   const handleData = (e) => {
-    // console.log(e.target.id)
-    // console.log(e.target.name)
-    //? objemizin key Degerinin degisken olmasını saglamak için square bracket yontemi ile e.target.id parametresini kullandik
+    // console.log(e.target.id);
+    // console.log(e.target.name);
+    //? objemizin key degerinin degisken olmasini saglamak icin square bracket yontemi ile e.target.id parametresini kullandik
     setData({ ...data, [e.target.name]: e.target.value })
   }
 
-  // console.log(data)
+  
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
