@@ -77,3 +77,23 @@ p{
     font-family: 'Pathway Gothic One', sans-serif;
     text-indent: 1.25rem;
 }
+details {
+    cursor: pointer;
+
+    .bi-arrow-up-circle {
+        display: none;
+    }
+}
+details[open] {
+
+    & summary {
+
+        .bi-arrow-down-circle {
+            display: none;
+        }
+
+        .bi-arrow-up-circle {
+            display: block;
+        }
+    }
+}

@@ -1,18 +1,19 @@
 import React from "react";
 import { arrowdown, arrowup } from "../helper/icons";
-const Card = () => {
+const Card = ({item}) => {
+  const [show, setShow] = React.useState(false);
   return (
     <div className="card-group">
         <div className="card">
           <div className="ques-answer">
             <h5>
-              Question
+              {item.question}
             </h5>
-            <button className="btn-minus">
-              {arrowup} {arrowdown}
+            <button className="btn-minus" onClick={() => setShow(!show)}>
+              {show ? arrowup : arrowdown}
             </button>
           </div>
-          <p>answer</p>
+          <p>{show && item.answer}</p>
         </div>
     </div>
   );
