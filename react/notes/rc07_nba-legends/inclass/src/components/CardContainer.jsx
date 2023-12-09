@@ -2,23 +2,21 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import {data} from "../helpers/data";
-import Card from 'react-bootstrap/Card';
+
+import Col from 'react-bootstrap/esm/Col';
+import PlayerCard from './PlayerCard';
 
 const CardContainer = () => {
     console.log(data);
     return(
         <>
         <Form.Control placeholder='Search a player' className='w-50 m-auto' />
-        <Container>
+        <Container className='rounded-4 my-4 p-3 card-container'>
             <Row>
                 {data.map((player,i) => (
-                    <Card>
-                    <Card.Img variant="top" src={player.img} />
-                    <Card.Footer>
-                      <Card.Title>{player.name}</Card.Title>
-                    </Card.Footer>                    
-                    
-                  </Card>
+                  <Col xl={3} lg={4} md={6} key={i}>
+                    <PlayerCard {...player} />
+                  </Col>
                 ) )}
             </Row>
         </Container>
