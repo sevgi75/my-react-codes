@@ -6,6 +6,7 @@ import {data} from "../helpers/data";
 import Col from 'react-bootstrap/esm/Col';
 import PlayerCard from './PlayerCard';
 import { useState } from 'react';
+import FormComp from './FormComp';
 
 const CardContainer = () => {
   const [search, setSearch] = useState("")
@@ -21,13 +22,14 @@ const CardContainer = () => {
     
     return(
         <>
-        <Form.Control 
+        {/* <Form.Control 
         placeholder='Search a player' 
         className='w-50 m-auto'
         onChange={handleChange}
         type='search' 
         //onChange={(e) => setSearch(e.target.value)} 
-        />
+        /> */}
+        <FormComp handleChange={handleChange} />
         <Container className='rounded-4 my-4 p-3 card-container'>
             <Row className='justify-content-center g-3'>
                 {data.filter((item) => 
