@@ -8,6 +8,7 @@ import PlayerCard from './PlayerCard';
 
 const CardContainer = () => {
     console.log(data);
+    
     return(
         <>
         <Form.Control placeholder='Search a player' className='w-50 m-auto' />
