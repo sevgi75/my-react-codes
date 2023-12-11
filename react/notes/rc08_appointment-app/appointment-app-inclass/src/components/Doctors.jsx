@@ -1,4 +1,4 @@
-import Container from "react-bootstrap/Container"
+import Container from "react-bootstrap/Container";
 
 const Doctors = () => {
   return (
@@ -6,6 +6,7 @@ const Doctors = () => {
       <h3 className="display-6 mb-3" style={{ color: "rgb(166, 18, 189)" }}>
         Our Doctors
       </h3>
+    
     </Container>
   )
 }
