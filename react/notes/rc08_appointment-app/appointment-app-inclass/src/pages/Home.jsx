@@ -13,6 +13,12 @@ const Home = () => {
   const handleDelete = (id) => {
     const filteredList = appointments.filter(item => item.id !== id)
     setAppointments(filteredList)
+  };
+
+  const handleDoubleClick = (id) => {
+    const updatedList = appointments.map(item => item.id === id ? {...item, consulted: !item.consulted} : item)
+    setAppointments(updatedList);
+    // console.log(id);
   }
   return (
     <main className="text-center mt-2">
@@ -20,7 +26,8 @@ const Home = () => {
       <Doctors handleAdd={handleAdd} />
       <AppointmentList 
       appointments={appointments} 
-      handleDelete={handleDelete} 
+      handleDelete={handleDelete}
+      handleDoubleClick={handleDoubleClick} 
       />
     </main>
   )
