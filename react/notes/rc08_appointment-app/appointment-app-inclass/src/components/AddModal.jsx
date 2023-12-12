@@ -16,7 +16,8 @@ function AddModal({show, handleClose, drName, handleAdd}) {
           consulted:false,
           doctor:drName
         }
-        handleAdd(newAppointment)
+        handleAdd(newAppointment);
+        handleClose();
         // console.log(name, date);
     }
 

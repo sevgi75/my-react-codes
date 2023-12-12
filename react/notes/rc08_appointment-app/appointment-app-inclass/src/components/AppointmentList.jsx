@@ -9,6 +9,9 @@ const AppointmentList = ({appointments, handleDelete, handleDoubleClick}) => {
       <h3 className="display-6 mb-2" style={{ color: "rgb(166, 18, 189)" }}>
         Appointment List
       </h3>
+      {appointments.length === 0 && (
+        <img src="./img/appointment.jpg" alt="appointment" width="70%" />
+      )}
       {appointments.map(({ id, patient, consulted, doctor, day }) => (
         <div
           key={id}
