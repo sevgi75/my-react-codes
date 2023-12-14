@@ -7,8 +7,12 @@ function App() {
   return (
     <div className="container text-center mt-4">
       <button className="btn btn-danger" onClick={() => setGoster(!goster)}>Gizle / Goster</button>
-      {goster && <LifeCycleMethods />}
-      <UseEffectHook />
+
+      {/* {goster && <LifeCycleMethods />} */}
+
+      {goster && <UseEffectHook />}
+      
+      
     </div>
   )
 }
