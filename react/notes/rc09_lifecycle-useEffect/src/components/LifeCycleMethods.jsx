@@ -19,11 +19,27 @@
 import React from "react"
 
 class LifeCycleMethods extends React.Component {
+  //! 1-) Bir componentin olusturulmasinda cagrilir
   constructor(props) {
+    console.log("Constructor running");
     super(props)
     this.state = {
-      count: 0,
+      count: 10,
     }
+  }
+
+  //! 3-) Bir component DOM agacina eklendiginde calistirilir.
+  //! (İlk render sonrasi)
+  //! Her yasam dongusu icin bir kere calisir
+  componentDidMount() {
+    //? Subscription (Fetch, timer kurulumu, initiliaztion islemleri(local storage))
+    console.log("componentDidMount");
+  }
+
+  //! 4-) Bu metot ilk render haric diger tum render'lardan sonra cagrilir.
+  componentDidUpdate() {
+    //? Bir componentin state'i veya propu degistikten sonra bir islemi tetiklemek istersek didUpdate metodu kullanilabilir.Ornegin, API'den cekilen parite bilgisine gore alim veya stim isleminin kontrolunun yapilmasi gibi.    
+    console.log("componentDidUpdate");
   }
 
   handleInc = () => {
@@ -31,14 +47,25 @@ class LifeCycleMethods extends React.Component {
       count: this.state.count + 1,
     })
   }
+  handleDec = () => {
+    this.setState({
+      count: this.state.count - 1,
+    })
+  }
 
+  //! 2-) Her bir state yada prop degistiginde (render) yeniden cagrilir
   render() {
+    console.log("*******************");
+    console.log("Render running");
     return (
       <div className="container text-center">
         <h1 className="text-danger">LIFECYCLE METHODS</h1>
         <h3>COUNT={this.state.count}</h3>
         <button className="btn btn-info" onClick={this.handleInc}>
           INC
+        </button>
+        <button className="btn btn-danger" onClick={this.handleDec}>
+          DEC
         </button>
       </div>
     )
