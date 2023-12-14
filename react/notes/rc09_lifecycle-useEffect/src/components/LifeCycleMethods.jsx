@@ -42,6 +42,11 @@ class LifeCycleMethods extends React.Component {
     console.log("componentDidUpdate");
   }
 
+  componentWillUnmount() {
+    //? Tum uyeliklerin (Fetch, timer, silme) iptalinin yapilabilecegi method
+    console.log("componentWillUnmount");
+  }
+
   handleInc = () => {
     this.setState({
       count: this.state.count + 1,

@@ -1,10 +1,13 @@
+import { useState } from "react"
 import LifeCycleMethods from "./components/LifeCycleMethods"
 import UseEffectHook from "./components/UseEffectHook"
 
 function App() {
+  const [goster, setGoster] = useState(true)
   return (
     <div className="container text-center mt-4">
-      <LifeCycleMethods />
+      <button className="btn btn-danger" onClick={() => setGoster(!goster)}>Gizle / Goster</button>
+      {goster && <LifeCycleMethods />}
       <UseEffectHook />
     </div>
   )
