@@ -21,7 +21,7 @@ import React from "react"
 class LifeCycleMethods extends React.Component {
   //! 1-) Bir componentin olusturulmasinda cagrilir
   constructor(props) {
-    console.log("Constructor running");
+    // console.log("Constructor running");
     super(props)
     this.state = {
       count: 10,
@@ -33,7 +33,7 @@ class LifeCycleMethods extends React.Component {
   //! Her yasam dongusu icin bir kere calisir
   componentDidMount() {
     //? Subscription (Fetch, timer kurulumu, initiliaztion islemleri(local storage))
-    console.log("componentDidMount");
+    // console.log("componentDidMount");
   }
 
   //! 4-) Bu metot ilk render haric diger tum render'lardan sonra cagrilir.
@@ -44,7 +44,7 @@ class LifeCycleMethods extends React.Component {
 
   componentWillUnmount() {
     //? Tum uyeliklerin (Fetch, timer, silme) iptalinin yapilabilecegi method
-    console.log("componentWillUnmount");
+    // console.log("componentWillUnmount");
   }
 
   handleInc = () => {
@@ -60,8 +60,8 @@ class LifeCycleMethods extends React.Component {
 
   //! 2-) Her bir state yada prop degistiginde (render) yeniden cagrilir
   render() {
-    console.log("*******************");
-    console.log("Render running");
+    // console.log("*******************");
+    // console.log("Render running");
     return (
       <div className="container text-center">
         <h1 className="text-danger">LIFECYCLE METHODS</h1>
