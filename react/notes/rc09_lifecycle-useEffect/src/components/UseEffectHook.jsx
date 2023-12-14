@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"
 
 //?===============================================
 //?                USEEFFECT HOOK
@@ -32,10 +31,45 @@ import { useState, useEffect } from "react"
 //!   };
 //! }, [state1, state2]); //? Dependency Array
 
-import React from "react"
+import { useEffect, useState } from "react"
 
 const UseEffectHook = () => {
-  return <div>UseEffectHook</div>
+  const [count, setCount] = useState(0)
+
+  // useEffect(() => {
+  //   //? ComponentDidMount + componentDidUpdate
+  //   console.log("Fetch started")
+
+  //   return () => {
+  //     //? DOM'Dan kaldirildiginda calisti
+  //     console.log("Unmounting")
+  //   }
+  // }, [count]) //? count herdegistiginde
+
+  useEffect(() => {
+    //? ComponentDidMount
+    console.log("Fetch started")
+
+    return () => {
+      //? DOM'Dan kaldirildiginda calisti
+      console.log("Unmounting")
+    }
+  }, []) //? array bos
+
+  console.log("render")
+  return (
+    <div className="container text-center">
+      <h1 className="text-danger">USEEFFECT</h1>
+      <h3>COUNT={count}</h3>
+      <button className="btn btn-info" onClick={() => setCount(count + 1)}>
+        INC
+      </button>
+      <button className="btn btn-danger" onClick={() => setCount(count - 1)}>
+        DEC
+      </button>
+    </div>
+  )
 }
 
 export default UseEffectHook
+

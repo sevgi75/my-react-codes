@@ -11,7 +11,7 @@ function App() {
       {/* {goster && <LifeCycleMethods />} */}
 
       {goster && <UseEffectHook />}
-      
+
       
     </div>
   )
