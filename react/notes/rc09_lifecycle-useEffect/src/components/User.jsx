@@ -1,9 +1,16 @@
-import React from 'react'
+import {useState} from 'react'
 import axios from "axios"
 
 const User = () => {
+    const [user, setUser] = useState([])
     const url = 'https://randomuser.me/api/'
 
+    const getUser = () => {
+    axios(url)
+    .then((res) => setUser(res.data.results[0]))
+    .catch((err) => console.log(err))
+}
+console.log(user);
 
   return (
     <div>
@@ -14,6 +21,7 @@ const User = () => {
         <h5>dob</h5>
         <h5>location</h5>
         <h5>phone</h5>
+        <button className='btn btn-success' onClick={getUser}>Get User</button>
     </div>
   )
 }
