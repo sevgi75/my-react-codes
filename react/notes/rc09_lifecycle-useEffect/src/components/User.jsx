@@ -28,7 +28,7 @@ useEffect (() => {
     //     clearInterval(sure)
     // }
 }, [])
-  console.log(user);
+//   console.log(user);
 
   //? user objesinin destr.
   const {name: {first, last}, email, picture: {large}, dob: {date}, location: {city}, phone} = user
