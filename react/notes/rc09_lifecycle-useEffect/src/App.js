@@ -1,6 +1,7 @@
 import { useState } from "react"
 import LifeCycleMethods from "./components/LifeCycleMethods"
 import UseEffectHook from "./components/UseEffectHook"
+import User from "./components/User"
 
 function App() {
   const [goster, setGoster] = useState(true)
@@ -10,7 +11,10 @@ function App() {
 
       {/* {goster && <LifeCycleMethods />} */}
 
-      {goster && <UseEffectHook />}
+      {/* {goster && <UseEffectHook />} */}
+      {goster && <User />}
+
+      
 
       
     </div>
