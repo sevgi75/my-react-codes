@@ -21,8 +21,7 @@ const AddTutorial = ({getTutorials}) => {
     } catch (error) {
       console.log(error);
     }
-    
-
+  
     getTutorials()
   }
 
