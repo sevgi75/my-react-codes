@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState } from "react"
 
 const AddTutorial = () => {
@@ -6,6 +7,14 @@ const AddTutorial = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const newTutorial = {title, description}
+    postTutorial(newTutorial);
+  }
+
+  const postTutorial = async (newTutorial) => {
+    const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
+    const res = await axios.post(URL, newTutorial)
+    console.log(res);
   }
 
   return (
