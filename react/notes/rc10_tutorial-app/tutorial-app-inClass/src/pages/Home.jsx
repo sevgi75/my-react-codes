@@ -24,7 +24,7 @@ const Home = () => {
   console.log(tutorials);
   return (
     <>
-      <AddTutorial />
+      <AddTutorial getTutorials={getTutorials} />
       <TutorialList tutorials={tutorials} />
     </>
   );
