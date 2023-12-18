@@ -1,3 +1,4 @@
+import { Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Contact from "./pages/Contact";
@@ -9,10 +10,13 @@ function App() {
   return (
     <>
       <Nav />
-      <Home />
-      <Instructors />
-      <Contact />
-      <NotFound />
+      <Routes>
+         <Home />
+         <Instructors />
+         <Contact />
+         <NotFound />
+      </Routes>
+      
       <Footer />
     </>
   );
