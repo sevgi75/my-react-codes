@@ -8,10 +8,11 @@ const PersonDetail = () => {
     const navigate = useNavigate()
     const [person, setPerson] = useState([])
     const [error, setError] = useState(false)
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
    
   
     const getPerson = () => {
+      setLoading(true)
       fetch(`https://reqres.in/api/users/${idx}`)
         .then((res) => {
           //?error handling
