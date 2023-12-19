@@ -1,24 +1,31 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import NotFound from "./NotFound"
+import spinner from "../img/Spinner-2.gif"
 
 const PersonDetail = () => {
     const { idx } = useParams()
     const navigate = useNavigate()
     const [person, setPerson] = useState([])
     const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(true)
+   
   
     const getPerson = () => {
       fetch(`https://reqres.in/api/users/${idx}`)
         .then((res) => {
           //?error handling
           if (!res.ok) {
+            setLoading(false)
             setError(true)
             throw new Error("Somehing went wrong")
           }
           return res.json()
         })
-        .then((data) => setPerson(data.data))
+        .then((data) => {
+          setLoading(false)
+          setPerson(data.data)
+        })
         .catch((err) => console.log(err))
     }
     useEffect(() => {
@@ -27,7 +34,13 @@ const PersonDetail = () => {
   
     // console.log(person)
   
-    if (error) {
+    if (loading) {
+      return (
+        <div className="text-center mt-4">
+          <img src={spinner} alt="spinner" />
+        </div>
+      )
+    } else if (error) {
       return <NotFound />
     } else {
       return (
