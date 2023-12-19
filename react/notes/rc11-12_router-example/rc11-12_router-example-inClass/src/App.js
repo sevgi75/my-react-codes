@@ -7,6 +7,8 @@ import NotFound from "./pages/NotFound";
 import Paths from "./pages/Paths";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PersonDetail from "./pages/PersonDetail";
+import Fullstack from "./pages/Fullstack";
+import Aws from "./pages/Aws";
 
 
 function App() {
@@ -18,8 +20,13 @@ function App() {
         <Route path="/" element={<Home />} />         
         <Route path="/people" element={<People />} />       
         <Route path="/people/:idx" element={<PersonDetail />} />       
-        <Route path="/contact" element={<Contact />} />       
-        <Route path="/paths" element={<Paths />} />     
+        <Route path="/contact" element={<Contact />} />
+
+        <Route path="/paths" element={<Paths />}>
+          <Route path="fs" element={<Fullstack />} />
+          <Route path="aws" element={<Aws />} />
+        </Route>
+
         <Route path="*" element={<NotFound />} />     
       </Routes>      
       
