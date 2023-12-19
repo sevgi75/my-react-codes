@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom"
-import Login from "./Login"
+// import Login from "./Login"
 
 
 const PrivateRouter = () => {
