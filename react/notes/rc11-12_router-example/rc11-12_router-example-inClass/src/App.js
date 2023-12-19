@@ -24,7 +24,7 @@ function App() {
         <Route path="/" element={<Home />} />
 
         <Route path="/people" element={<PrivateRouter />}>
-          <Route path="/people" element={<People />} />       
+          <Route index path="" element={<People />} />       
           <Route path="/people/:idx" element={<PersonDetail />} />
         </Route>
 
