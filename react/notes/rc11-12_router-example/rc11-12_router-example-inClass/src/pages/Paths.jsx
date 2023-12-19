@@ -14,7 +14,7 @@ const Paths = () => {
 
       <div>
         <button className="btn btn-success w-50" onClick={() => navigate("fs")}>FS</button>
-        <button className="btn btn-warning w-50" onClick={() => navigate("aws")}>Aws-Devops</button>
+        <button className="btn btn-warning w-50" onClick={() => navigate("")}>Aws-Devops</button>
       </div>
 
       <Outlet />
