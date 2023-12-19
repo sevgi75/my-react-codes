@@ -4,7 +4,7 @@ import Login from "./Login"
 
 const PrivateRouter = () => {
     //? Context API, redux, localStorage
-    const isAuthenticated = false
+    const isAuthenticated = true
 
     //? useNavigate (Hook) ile Navigate(Component) aslında aynı işi yapar. Yani yönlendirme işlemini gerçekleştirir.
   //? Aralarindaki fark kullanım yerleridir. Hook olan bir event ya da useEefect hook'u nun içerisi gibi yerlerde kullanılır. (Fonkisyionların kullanıldığı yerler)
