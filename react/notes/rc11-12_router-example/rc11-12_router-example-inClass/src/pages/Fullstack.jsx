@@ -1,4 +1,4 @@
-import React from 'react'
+import {Outlet, Link} from "react-router-dom"
 
 const Fullstack = () => {
   return (
@@ -15,6 +15,10 @@ const Fullstack = () => {
       <div>
         <button className="btn btn-outline-success mt-4">Learn More</button>
       </div>
+
+      <Link className="btn btn-danger" to="frontend">Frontend</Link>
+      <Link className="btn btn-warning" to="backend">Backend</Link>
+      <Outlet />
 
     </div>
   )

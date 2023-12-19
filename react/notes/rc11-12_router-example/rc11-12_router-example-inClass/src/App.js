@@ -10,6 +10,7 @@ import PersonDetail from "./pages/PersonDetail";
 import Fullstack from "./pages/Fullstack";
 import Aws from "./pages/Aws";
 import Frontend from "./pages/Frontend";
+import Backend from "./pages/Backend";
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
         <Route path="/paths" element={<Paths />}>
           <Route path="fs" element={<Fullstack />}>
             <Route path="frontend" element={<Frontend />} />
-            {/* <Route path="backend" element={<Backend />} /> */}
+            <Route path="backend" element={<Backend />} />
           </Route>
           <Route index path="" element={<Aws />} />
         </Route>
