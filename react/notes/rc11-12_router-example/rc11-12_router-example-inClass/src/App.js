@@ -9,6 +9,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PersonDetail from "./pages/PersonDetail";
 import Fullstack from "./pages/Fullstack";
 import Aws from "./pages/Aws";
+import Frontend from "./pages/Frontend";
 
 
 function App() {
@@ -23,8 +24,11 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
         <Route path="/paths" element={<Paths />}>
-          <Route path="fs" element={<Fullstack />} />
-          <Route path="aws" element={<Aws />} />
+          <Route path="fs" element={<Fullstack />}>
+            <Route path="frontend" element={<Frontend />} />
+            {/* <Route path="backend" element={<Backend />} /> */}
+          </Route>
+          <Route index path="" element={<Aws />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />     
