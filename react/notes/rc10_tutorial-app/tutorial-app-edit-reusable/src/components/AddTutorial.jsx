@@ -1,28 +1,49 @@
-import { useState } from "react"
-import axios from "axios"
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const AddTutorial = ({ getTutorials }) => {
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
+const AddTutorial = ({ getTutorials, editData, setEditData }) => {
+  const { title: oldTitle, description: oldDescription, id } = editData;
+  const [title, setTitle] = useState(oldTitle);
+  const [description, setDescription] = useState(oldDescription);
+  console.log(title, description);
+
+  //? componentDidUpdate
+  useEffect(() => {
+    setTitle(oldTitle);
+    setDescription(oldDescription);
+  }, [oldTitle, oldDescription]);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const newTutorial = { title, description }
-    postTutorial(newTutorial)
-    setTitle("")
-    setDescription("")
-  }
+    e.preventDefault();
+    const newTutorial = { title, description };
+    if (id) {
+      editTutorial(newTutorial);
+      setEditData("");
+    } else {
+      postTutorial(newTutorial);
+      setTitle("");
+      setDescription("");
+    }
+  };
 
   const postTutorial = async (newTutorial) => {
     try {
       // const URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
-      const res = await axios.post(process.env.REACT_APP_URL, newTutorial)
-      console.log(res)
+      const res = await axios.post(process.env.REACT_APP_URL, newTutorial);
+      console.log(res);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    getTutorials()
-  }
+    getTutorials();
+  };
+  const editTutorial = async (tutorial) => {
+    try {
+      await axios.put(`${process.env.REACT_APP_URL}${id}/`, tutorial);
+      getTutorials();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="container text-center mt-4">
@@ -37,7 +58,7 @@ const AddTutorial = ({ getTutorials }) => {
             className="form-control"
             id="title"
             placeholder="Enter your title"
-            value={title}
+            value={title || ""}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
@@ -51,17 +72,17 @@ const AddTutorial = ({ getTutorials }) => {
             className="form-control"
             id="desc"
             placeholder="Enter your Description"
-            value={description}
+            value={description || ""}
             onChange={(e) => setDescription(e.target.value)}
             required
           />
         </div>
         <button type="submit" className="btn btn-danger mb-4">
-          Submit
+          {id ? "Edit" : "Submit"}
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default AddTutorial
+export default AddTutorial;

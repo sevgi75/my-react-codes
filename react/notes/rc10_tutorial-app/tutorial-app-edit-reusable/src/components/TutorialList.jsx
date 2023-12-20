@@ -1,11 +1,8 @@
-import { FaEdit } from "react-icons/fa"
-import { AiFillDelete } from "react-icons/ai"
-import axios from "axios"
-import EditTutorial from "./EditTutorial"
-import { useState } from "react"
+import { FaEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
+import axios from "axios";
 
-const TutorialList = ({ tutorials, getTutorials }) => {
-  const [editData, setEditData] = useState("")
+const TutorialList = ({ tutorials, getTutorials, setEditData }) => {
   //? mock data
   // const tutorials = [
   //   {
@@ -27,14 +24,12 @@ const TutorialList = ({ tutorials, getTutorials }) => {
 
   const deleteTutorial = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_URL}${id}/`)
+      await axios.delete(`${process.env.REACT_APP_URL}${id}/`);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    getTutorials()
-  }
-
-  console.log(editData)
+    getTutorials();
+  };
 
   return (
     <div className="container mt-4">
@@ -51,7 +46,7 @@ const TutorialList = ({ tutorials, getTutorials }) => {
         </thead>
         <tbody>
           {tutorials?.map((item) => {
-            const { id, title, description } = item
+            const { id, title, description } = item;
             return (
               <tr key={id}>
                 <th>{id}</th>
@@ -74,13 +69,12 @@ const TutorialList = ({ tutorials, getTutorials }) => {
                   />
                 </td>
               </tr>
-            )
+            );
           })}
         </tbody>
       </table>
-      <EditTutorial editData={editData} />
     </div>
-  )
-}
+  );
+};
 
-export default TutorialList
+export default TutorialList;
