@@ -10,5 +10,6 @@ module.exports = {
   },
   //* projemize bir plugin dahil etmek istiyorsak config dosyasına eklememiz gerekir
   // plugins: [ require('flowbite/plugin')],
+  darkMode: 'class',
 };
 
