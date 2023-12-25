@@ -11,9 +11,16 @@ export const reducer = (initialState, action) => {
         case "SUCCESS":
             return {
                 ...initialState, 
-                action.payload, 
+                catImage: action.payload, 
                 loading: false, 
                 error: "",
+            }            
+        case "FAIL":
+            return {
+                ...initialState, 
+                catImage: "", 
+                loading: false, 
+                error: action.payload,
             }            
             
     

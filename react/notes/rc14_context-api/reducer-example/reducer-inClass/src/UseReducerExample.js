@@ -26,6 +26,8 @@ const UseStateExample = () => {
     } catch (error) {
       // setError("DATA CAN NOT BE FETCHED");
       // setCatImage("");
+      //? 3. istegin basarisiz bittigi asama
+      dispatch({type:"FAIL", payload: "DATA CAN NOT BE FETCHED"})
       console.log(error);
     } finally {
       // setLoading(false);
