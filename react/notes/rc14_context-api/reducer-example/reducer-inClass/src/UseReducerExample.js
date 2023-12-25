@@ -1,26 +1,34 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
+import { reducer } from "./reducer";
+import { initialState } from "./reducer";
 
 const UseStateExample = () => {
-  const [catImage, setCatImage] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  // const [catImage, setCatImage] = useState("");
+  // const [error, setError] = useState("");
+  // const [loading, setLoading] = useState(false);
 
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  const {loading, error, catImage} = state
+
   const getCatImage = async () => {
     const url = "https://api.thecatapi.com/v1/images/search";
-    setLoading(true);
+    // setLoading(true);
+    //? 1. istegin basladigi asama (START)
+    dispatch({type:"START", payload:""})
     try {
       const res = await fetch(url);
       const data = await res.json();
-      setCatImage(data[0].url);
-      setError("");
+      // setCatImage(data[0].url);
+      // setError("");
+      //? 2. istegin basarili bittigi asama
+      dispatch({type:"SUCCESS", payload:data[0].url})
     } catch (error) {
-      setError("DATA CAN NOT BE FETCHED");
-      setCatImage("");
+      // setError("DATA CAN NOT BE FETCHED");
+      // setCatImage("");
       console.log(error);
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   };
   console.log(error);

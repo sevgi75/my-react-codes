@@ -1,14 +1,21 @@
-const initialState = {
+export const initialState = {
     loading: false,
     catImage: "",
     error: "",
 }
 
-const reducer = (initialState, action) => {
-    switch (key) {
-        case value:
+export const reducer = (initialState, action) => {
+    switch (action.type) {
+        case "START":
+            return {...initialState, loading: true}            
+        case "SUCCESS":
+            return {
+                ...initialState, 
+                action.payload, 
+                loading: false, 
+                error: "",
+            }            
             
-            break;
     
         default:
             break;
