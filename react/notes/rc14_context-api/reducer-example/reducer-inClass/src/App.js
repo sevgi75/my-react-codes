@@ -1,4 +1,4 @@
-import UseReducerExample from "./UseStateExample";
+import UseReducerExample from "./UseReducerExample";
 
 function App() {
   return (
