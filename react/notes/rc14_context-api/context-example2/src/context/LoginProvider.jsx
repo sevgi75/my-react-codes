@@ -1,27 +1,28 @@
-import { createContext, useContext, useState } from "react";
+import { useContext } from "react"
+import { createContext, useState } from "react"
 
-//? 1. Login bilgilerini saklayacak bir context olusturduk.
- const LoginContext = createContext()
+//? 1. Login bilgilerini sakalyacak bir context olusturduk.
+const LoginContext = createContext()
 
-//? 2. sarmalama 
- const LoginProvider = (children) => {
-    const [user, setUser] = useState({ email: "", password: "" });
+//? 2. Sarmalama
+const LoginProvider = ({ children }) => {
+  const [user, setUser] = useState({ email: "", password: "" })
 
-    const values = {user, setUser}
-   return (
-     <LoginContext.Provider value={values}>
-        {children}
-     </LoginContext.Provider>
-   )
- }
+  const values = {
+    user,
+    setUser,
+  }
+  return (
+    <LoginContext.Provider value={values}>{children}</LoginContext.Provider>
+  )
+}
+//? Consuming için bir custom hook yazıyoruz.
+export const useLoginContext = () => {
+  return useContext(LoginContext)
+}
 
- //? Consuming icin bir custom hook yaziyoruz.
- export const useLoginContext = () => {
-    return useContext(LoginContext)
- }
- 
- export default LoginProvider
+export default LoginProvider
 
-//  <Provider>  //? App privider in child (props.children)
-//     <App/>
-//  </Provider>
+/* <Provider>   //? App prvider'ın child (props.children)
+  <App/>
+</Provider> */
