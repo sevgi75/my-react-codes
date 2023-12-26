@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 
 const Login = () => {
@@ -7,12 +7,13 @@ const Login = () => {
   const {login} = useContext(AuthContext)
   const handleSubmit= (e)=>{
     e.preventDefault()
-    // console.log({email,pass})
-    // if(email.toLowerCase()==="admin@aa.com" && pass.toLowerCase()==="admin"){
-    //   login({email,pass})
-    // }else{
-    //   alert("Kullanıcı bilgileri yanlış")
+    console.log({email,pass})
+    if(email.toLowerCase()==="admin@aa.com" && pass.toLowerCase()==="admin"){
+      login({email,pass})
+    }else{
+      alert("Kullanıcı bilgileri yanlış")
     }
+  }
   return (
     <div className="loginDiv">
       <div className="h-[500px] w-11/12 sm:w-[475px] bg-white rounded-[20px] p-5 flex justify-between flex-col text-center">
