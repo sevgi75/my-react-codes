@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from '../components/Navbar'
 import { Navigate, Outlet } from 'react-router-dom'
+import { AuthContext } from '../context/AuthProvider'
 
 const PrivateRouter = () => {
-  return true ? (
+  const {user} = useContext(AuthContext)
+  return user.email ? (
     <>
     <Navbar />
     <Outlet />
