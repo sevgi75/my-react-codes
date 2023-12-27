@@ -7,6 +7,7 @@ const Products = () => {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(false)
   const [search, setSearch] = useState("");
+  console.log(search);
 
   const getData = async () => {
     setLoading(true)
@@ -23,7 +24,7 @@ const Products = () => {
 
   useEffect(() => {
     getData()
-  },[])
+  },[search]) //! search state i degistikce getData fonksiyonu calissin
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
