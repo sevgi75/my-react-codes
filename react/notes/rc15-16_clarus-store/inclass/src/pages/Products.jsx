@@ -44,7 +44,7 @@ const Products = () => {
         // <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 xl:gap-x-8">
         <div className="card-div">
           {products.map((item) => (
-            <ProductCard />
+            <ProductCard key={item.id} item={item} />
           ))}
         </div>
       ) : (
