@@ -15,7 +15,7 @@ const ProductDetail = () => {
               <img className="h-full w-full rounded-lg" src={thumbnail} alt="" />
             </div>
             <div className="grid grid-cols-3 gap-4 row-span-1">
-              {images.slice(images.length-1).map((item, i) => (
+              {images.slice(0,images.length-2).map((item, i) => (
                 <div key={i}>
                    <img
                      className="h-[15vh] w-full rounded-lg"
