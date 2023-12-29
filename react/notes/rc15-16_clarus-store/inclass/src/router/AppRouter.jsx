@@ -12,15 +12,17 @@ const AppRouter = () => {
   return (
     <>
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path='dashboard' element={<PrivateRouter />}>
-        <Route path='' element={<Home />} />
-        <Route path='/dashboard/products' element={<Products />} />
-        <Route path='products/:title' element={<ProductDetail />} />
-        <Route path='about' element={<About />} />
-      </Route>
-      <Route path='*' element={<NotFound />}/>
-    </Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<PrivateRouter />}>
+          <Route path="" element={<Home />} />
+          <Route path="/dashboard/products" element={<Products />} />
+          <Route path="products/:title" element={<ProductDetail />} />
+          {/* <Route path="products/:title/:id" element={<ProductDetailId />} /> */}
+          {/*bu sayfa için productcard compnentindeki yorumda olan yapıyı açınız*/}
+          <Route path="about" element={<About />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   )
 }
