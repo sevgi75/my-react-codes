@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
+import ErrorPage from "../components/ErrorPage";
 
 const ProductDetail = () => {
   const {title: params} = useParams() //dinamik routelardaki degeri yakalar
@@ -14,6 +15,8 @@ const ProductDetail = () => {
   useEffect(() => {
     getDetailData()
   },[])
+
+  if(!state) return <ErrorPage />
   const {thumbnail, title, description, category, price, images} = state
   return (
     <div className="mx-auto max-w-2xl px-4 pt-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">

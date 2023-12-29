@@ -25,4 +25,10 @@ const ProductCard = ({item}) => {
   )
 }
 
-export default ProductCard
+export default ProductCard;
+
+// Detail sayfasina veri tasima yollari
+
+//! 1.yol useNavigate ile tasiyip useLocation ile karsilama(bizim yaptigimiz gibi)
+//? 2.yol bilgileri globale aktarip detail sayfasinda globalden cekme.Ornegin; detail diye bir state acip onu burada tiklama gerceklestiginde doldurup detail sayfasindan cekip alma
+//& 3.yol ve guvenli yol yonlendirme yaparken id bilgisini veya urune ait veri cekebilecegimiz bir degeri (slug gibi) url e ekleyip ilgili sayfada gelen useParams ile ilgili id bilgisini yakalayip apiye istek atma

@@ -1,40 +1,44 @@
-import React, { useEffect, useState } from 'react'
-import SearchInput from '../components/SearchInput'
-import ProductCard from '../components/ProductCard'
+import React, { useEffect, useState } from "react";
+import SearchInput from "../components/SearchInput";
+import ProductCard from "../components/ProductCard";
 import axios from "axios";
-import Loading from '../components/Loading';
-
+import Loading from "../components/Loading";
+import { useProducts } from "../context/ProductProvider";
 const Products = () => {
-  const [products, setProducts] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [search, setSearch] = useState("");
-  console.log(search);
-
-  const getData = async () => {
-    setLoading(true)
-    try {
-      const {data} = await axios(`https://dummyjson.com/products/search?q=${search}`)
-      console.log(data);
-      setProducts(data.products)
-    } catch (error) {
-      console.log(error);
-    }finally {
-      setLoading(false)
-    }
-  }
-
+  //! veri çekme işlemini burada yaptığımızda problem şu oluyor. Biz her detaile gidip geri geldiğimizde Products sayfası yeniden render olduğu için stateler initial değerlerie geri dönüyor ve bu nedenle arama yapılan veriler kayboluyor bu da istenen bir durum olmaz. Arama sonuçlarının kalabilmesi için statelerimizi globale taşıdık.
+  // const [products, setProducts] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  // const [search, setSearch] = useState("");
+  // console.log(search);
+  // const getData = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const { data } = await axios(
+  //       `https://dummyjson.com/products/search?q=${search}`
+  //     );
+  //     console.log(data);
+  //     setProducts(data.products);
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  // // useEffect(() => {
+  // //   getData();
+  // // }, []);//!compoentnDidMount yani başlagıçta çalış birdaha çalışma
   // useEffect(() => {
-  //   getData()
-  // },[]) //! componentDidMount yani baslangicta calis bir daha calisma
+  //   getData();
+  // }, [search]); //! search statei değiştikçe getData fonksiyonu çalışsın
 
-  useEffect(() => {
-    getData()
-  },[search]) //! search state i degistikce getData fonksiyonu calissin
+  const { products, loading } = useProducts();
 
   return (
     // <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
     <div className="container">
-      <SearchInput search={search} setSearch={setSearch} />
+      {/* <SearchInput search={search} setSearch={setSearch} /> */}
+      <SearchInput />
+
       <h2 className="text-2xl font-bold mt-8 tracking-tight text-gray-900">
         All Products
       </h2>
@@ -50,9 +54,8 @@ const Products = () => {
       ) : (
         <h2 className="text-center text-3xl text-red-600 mt-32">No Products</h2>
       )}
-      
     </div>
-  )
-}
+  );
+};
 
-export default Products
+export default Products;
