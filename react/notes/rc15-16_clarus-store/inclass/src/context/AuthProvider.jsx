@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     sessionStorage.setItem("user", JSON.stringify(user))
-  },[user])
+  },[user])//! componentDidUpdate
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
