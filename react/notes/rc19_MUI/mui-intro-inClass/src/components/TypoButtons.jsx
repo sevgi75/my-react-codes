@@ -65,13 +65,24 @@ const TypoButtons = () => {
           </Typography>
         </div>
       </Box>
-      <Stack>
+      <Stack direction={"row"} mt={4} spacing={2} justifyContent={"center"}>
         <Button variant="text">Text</Button>
-        <Button variant="contained" color="secondary">Contained</Button>
-        <Button variant="outlined" color="error">Outlined</Button>
-        <Button variant="outlined" color="warning">Outlined</Button>
-        <Button variant="outlined" color="success">Outlined</Button>
-        <Button variant="outlined" color="primary">Outlined</Button>
+        <Button variant="contained" color="secondary">
+          Contained
+        </Button>
+        <Button variant="outlined" color="error">
+          Outlined
+        </Button>
+        <Button variant="outlined" color="warning">
+          Outlined
+        </Button>
+        <Button variant="outlined" color="success">
+          Outlined
+        </Button>
+
+        <Button variant="contained" color="primary">
+          Outlined
+        </Button>
       </Stack>
     </>
   )
