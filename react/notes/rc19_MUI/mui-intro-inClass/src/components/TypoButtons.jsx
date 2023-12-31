@@ -10,7 +10,7 @@ import Stack from "@mui/material/Stack"
 const TypoButtons = () => {
   return (
     <>
-      {" "}
+      
       <Box
         component="section"
         sx={{
@@ -65,7 +65,7 @@ const TypoButtons = () => {
           </Typography>
         </div>
       </Box>
-      <Stack direction={"row"} mt={4} spacing={2} justifyContent={"center"}>
+      <Stack direction={"row"} mt={4} columnGap={1} rowGap={2} justifyContent={"center"} flexWrap={"wrap"}>
         <Button variant="text">Text</Button>
         <Button variant="contained" color="secondary">
           Contained
@@ -76,11 +76,15 @@ const TypoButtons = () => {
         <Button variant="outlined" color="warning">
           Outlined
         </Button>
-        <Button variant="outlined" color="success">
+        <Button variant="contained" color="primary">
           Outlined
         </Button>
 
-        <Button variant="contained" color="primary">
+        <Button variant="contained" sx={{backgroundColor: "#bede", color: "black"}}>
+          Outlined
+        </Button>
+
+        <Button variant="contained" sx={{backgroundColor: "error.light"}}>
           Outlined
         </Button>
       </Stack>
