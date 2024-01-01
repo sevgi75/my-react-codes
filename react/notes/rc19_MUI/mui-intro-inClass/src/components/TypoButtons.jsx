@@ -65,6 +65,18 @@ const TypoButtons = () => {
           </Typography>
         </div>
       </Box>
+      <Typography variant="h2" align="center" mt={4} color={"morcivert.light"}>
+            BUTTONS
+      </Typography>
+
+      <Typography variant="h6" align="center" mt={4} color={"morcivert.main"}>
+            BUTTONS
+      </Typography>
+
+      <Typography variant="h6" align="center" mt={4} color={"morcivert.dark"}>
+            BUTTONS
+      </Typography>
+
       <Stack direction={"row"} mt={4} columnGap={1} rowGap={2} justifyContent={"center"} flexWrap={"wrap"}>
         <Button variant="text">Text</Button>
         <Button variant="contained" color="secondary">

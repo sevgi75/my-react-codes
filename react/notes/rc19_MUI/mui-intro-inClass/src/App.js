@@ -1,6 +1,6 @@
 import Home from "./pages/Home";
 import { createTheme, ThemeProvider } from "@mui/material";
-import { deepOrange } from "@mui/material/colors";
+import { deepOrange, teal, deepPurple } from "@mui/material/colors";
 
 function App() {
   const theme = createTheme({
@@ -9,7 +9,12 @@ function App() {
         main:"#dc143c",
       },
       secondary:{
-        main: deepOrange[500],
+        main: teal[200],
+      },
+      morcivert: {
+        main: deepPurple["A200"],
+        light: deepPurple["A100"],
+        dark: deepPurple["A400"],
       }
     },
   })
