@@ -12,29 +12,24 @@ export default function CardComp() {
     <Container align="center">
       <Typography color={"primary.dark"} variant='h3' m={3}>Card and Grid</Typography>
       
-      <Grid container>
-        {data.map((card) => (
-            <Grid item>
+      <Grid container rowSpacing={2} columnSpacing={4}>
+        {data.map(({id, name, text, img}) => (
+            <Grid item xs={12} sm={6} md={4}>
               <Card>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-      </Card>  
+                 <CardMedia component="img" sx={{ height: 500 }} image={img}   title={name}/>
+                 <CardContent>
+                   <Typography gutterBottom variant="h5" component="div">
+                    {name}          
+                   </Typography>
+                   <Typography variant="body2" color="text.secondary">
+                    {text}          
+                   </Typography>
+                 </CardContent>
+                 <CardActions>
+                   <Button size="small">Share</Button>
+                   <Button size="small">Learn More</Button>
+                 </CardActions>
+                 </Card>  
             </Grid>
         ))}
       </Grid>
