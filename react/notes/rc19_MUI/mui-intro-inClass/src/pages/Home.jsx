@@ -1,3 +1,4 @@
+import AppBarComp from "../components/AppBarComp";
 import CardComp from "../components/CardComp";
 // import TextFieldComp from "../components/TextFieldComp";
 // import TypoButtons from "../components/TypoButtons";
@@ -5,6 +6,7 @@ import CardComp from "../components/CardComp";
 const Home = () => {
   return (
     <>
+      <AppBarComp />
       {/* <TypoButtons /> */}
       {/* <TextFieldComp /> */}
       <CardComp />
