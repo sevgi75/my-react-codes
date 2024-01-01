@@ -15,7 +15,16 @@ function App() {
         main: deepPurple["A200"],
         light: deepPurple["A100"],
         dark: deepPurple["A400"],
-      }
+      },
+    },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 500,
+        md: 800,
+        lg: 1200,
+        xl: 1536,
+      },
     },
   })
   return( 
