@@ -1,11 +1,13 @@
-import TextFieldComp from "../components/TextFieldComp";
-import TypoButtons from "../components/TypoButtons";
+import CardComp from "../components/CardComp";
+// import TextFieldComp from "../components/TextFieldComp";
+// import TypoButtons from "../components/TypoButtons";
 
 const Home = () => {
   return (
     <>
-      <TypoButtons />
-      <TextFieldComp />
+      {/* <TypoButtons /> */}
+      {/* <TextFieldComp /> */}
+      <CardComp />
     </>
   );
 };
