@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import avatar from "../assets/icons/avatar.png";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -8,13 +9,15 @@ function classNames(...classes) {
 
 export default function Navbar() {
 
-  const currentUser = {displayName: "sevgi erbil"}
+  // const currentUser = {displayName: "sevgi erbil"};
+  const currentUser = false;
   return (
+    <>
     <Disclosure
       as="nav"
       className="bg-neutral-100 dark:bg-gray-900 py-3 dark:text-white fixed w-full z-20 top-0 "
     >
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between">
           {/* left content */}
           <Link className="pr-2 text-2xl font-semibold" to="/">
@@ -22,7 +25,7 @@ export default function Navbar() {
           </Link>
           {/* right content */}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <h5 className="mr-2 capitalize">{currentUser.displayName} </h5>
+            {currentUser && <h5 className="mr-2 capitalize">{currentUser.displayName} </h5>}
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
               <div>
@@ -31,8 +34,10 @@ export default function Navbar() {
                   <span className="sr-only">Open user menu</span>
                   <img
                     className="h-8 w-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
+                    src={currentUser?.photoURL || avatar}
+                    alt="user"
+                    // dış kaynaktan alacagimiz resimler guvenlik nedeniyle gorunmeyebilir, bunu asmak icin ekliyoruz
+                    referrerPolicy="no-referrer"
                   />
                 </Menu.Button>
               </div>
@@ -46,6 +51,8 @@ export default function Navbar() {
                 leaveTo="transform opacity-0 scale-95"
               >
                 <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  {!currentUser && (
+                <>
                   <Menu.Item>
                     {({ active }) => (
                       <Link
@@ -72,6 +79,9 @@ export default function Navbar() {
                       </Link>
                     )}
                   </Menu.Item>
+                </>
+                  )}
+                  {currentUser && (
                   <Menu.Item>
                     {({ active }) => (
                       <span
@@ -84,6 +94,7 @@ export default function Navbar() {
                       </span>
                     )}
                   </Menu.Item>
+                  )}
                 </Menu.Items>
               </Transition>
             </Menu>
@@ -91,5 +102,7 @@ export default function Navbar() {
         </div>
       </div>
     </Disclosure>
+    <div className="h-[56px]"></div>
+    </>
   );
 }
