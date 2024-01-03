@@ -1,5 +1,5 @@
 const initialState = {
-    todoList: [{id: new Date.getTime(), text: "Learn Redux", completed: false}],
+    todoList: [{id: new Date().getTime(), text: "Learn Redux", completed: false}],
 }
 //? Types
 export const ADD = "ADD"
@@ -15,7 +15,12 @@ export const todoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
 
   case ADD:
-    return { ...state, ...payload }
+    return {
+        todoList: [
+            ...state.todoList,
+            {id: new Date().getTime(), text: payload, completed: false}
+        ],
+    }
 
   default:
     return state
