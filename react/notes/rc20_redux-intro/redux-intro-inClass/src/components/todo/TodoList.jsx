@@ -1,13 +1,15 @@
+import { useSelector } from "react-redux"
 import TodoItem from "./TodoItem"
 
 const TodoList = () => {
+  const todoList = useSelector((state) => state.todo.todoList)
   const handleClearList = () => {}
 
   return (
     <div>
       <div>
-        {[1, 2]?.map((todo) => (
-          <TodoItem key={todo.id} {...todo} />
+        {todoList?.map((todo, index) => (
+          <TodoItem key={index} {...todo} />
         ))}
       </div>
       <div className="clear-wrapper">
