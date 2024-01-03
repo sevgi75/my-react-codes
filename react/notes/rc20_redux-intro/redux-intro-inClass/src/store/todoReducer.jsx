@@ -9,6 +9,7 @@ export const CMP = "CMP"
 
 //? action creator functions
 export const addTodo = (payload) => ({type: ADD, payload})
+export const clearTodo = () => ({type: CLR})
 
 //? Reducers
 export const todoReducer = (state = initialState, { type, payload }) => {
@@ -21,6 +22,15 @@ export const todoReducer = (state = initialState, { type, payload }) => {
             {id: new Date().getTime(), text: payload, completed: false}
         ],
     }
+  case CLR:
+    return initialState
+
+  case DEL:
+    return {}
+
+  case CMP:
+    return {}       
+    
 
   default:
     return state
