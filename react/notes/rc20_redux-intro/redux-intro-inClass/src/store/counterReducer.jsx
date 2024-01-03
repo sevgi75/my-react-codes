@@ -18,6 +18,7 @@ export const counterReducer = (state=initialState, action) => {
             return {count: 0}
             
         default :
-            return state    
+            return state
+        //! Reducer fonksiyonu muhakkak bir state objesi dondurmelidir.Yanlis bir type gelse bile state'in ilk halini dondurmelidir.        
     }
 }
