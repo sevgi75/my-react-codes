@@ -6,6 +6,15 @@ export const INC = 'INC'
 export const DEC = 'DEC'
 export const CLR = 'CLR'
 
+//? Action creater fonksiyonlarinin tanimlanmasi
+export const increment = () => {
+    return {type: INC}
+}
+export const decrement = () => ({type: DEC})
+
+export const clear = () => ({type: CLR})
+
+//? Reducer
 export const counterReducer = (state=initialState, action) => {
     switch (action.type) {
         case INC :
