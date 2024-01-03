@@ -4,30 +4,34 @@ import { useAuthContext } from "../context/AuthContext";
 
 const Register = () => {
   //* consuming context
-  const {createUser} = useAuthContext()
-  //* ayri stateler
+  const { createUser, signUpProvider } = useAuthContext();
+  //* ayrı stateler
   // const [firstName, setFirstName] = useState();
   // const [lastName, setLastName] = useState();
   // const [email, setEmail] = useState();
   // const [password, setPassword] = useState();
-  //! inputlarla calisiyorsak statelerin ilk degeri null veya undefined olmamali
+  //! inputlarla çalışıyorsak statelerin ilk değeri null veya undefined olmamalı
+  //* birleştirilmiş state
   const [info, setInfo] = useState({
-    firstName:"",
-    lastName:"",
-    email:"",
-    password:""
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
   });
-  const handleChange = (e) => 
-  setInfo({...info, [e.target.name]: e.target.value});
-  
+
+  const handleChange = (e) =>
+    setInfo({ ...info, [e.target.name]: e.target.value });
+
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const {email,password} = info  
-    createUser(email,password)
-  }
+    e.preventDefault();
+    const { email, password, firstName, lastName } = info;
+    const displayName = `${firstName} ${lastName}`;
+    createUser(email, password, displayName);
+  };
+
   return (
     <div className="flex justify-center">
-      <div className="overflow-hidden flex-1 h-screen justify-center items-center dark:bg-gray-dark-main">
+      <div className="overflow-hidden flex-1 justify-center items-center ">
         <div className={`form-container mt-[5vh] w-[380px] h-[580px] `}>
           <form onSubmit={handleSubmit}>
             <h2 className="text-red-main text-2xl font-[500] text-center tracking-[0.1em] mb-3">
@@ -83,6 +87,7 @@ const Register = () => {
             <button
               className="flex justify-between text-center items-center btn-danger"
               type="button"
+              onClick={signUpProvider}
             >
               Continue with Google
               <GoogleIcon color="currentColor" />
