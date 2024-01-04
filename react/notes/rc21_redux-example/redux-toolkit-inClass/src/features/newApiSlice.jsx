@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const newApiSlice = createSlice({
-  name: second,
+  name: "newsApi",
   initialState,
   reducers: {}
 });
