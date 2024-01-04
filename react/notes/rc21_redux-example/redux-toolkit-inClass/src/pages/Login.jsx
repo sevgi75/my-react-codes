@@ -7,13 +7,22 @@ import Avatar from "@mui/material/Avatar"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { setUser } from "../features/authSlice"
+import { useNavigate } from "react-router-dom"
 
 export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const dispatch = useDispatch()
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    //TODO
+    dispatch(setUser({email:email,password:password}))
+    // navigate("/")
     setEmail("")
     setPassword("")
   }
