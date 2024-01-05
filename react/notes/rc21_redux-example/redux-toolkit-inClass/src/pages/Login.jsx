@@ -14,15 +14,15 @@ import { useNavigate } from "react-router-dom"
 export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
 
   const handleSubmit = (e) => {
     e.preventDefault()
     //TODO
-    dispatch(setUser({email:email,password:password}))
-    // navigate("/")
+    dispatch(setUser({email,password}))
+    navigate("/")
     setEmail("")
     setPassword("")
   }
