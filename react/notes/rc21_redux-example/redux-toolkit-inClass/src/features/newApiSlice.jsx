@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
 const initialState = {
@@ -8,16 +8,16 @@ const initialState = {
 }
 
 export const getNewsData = createAsyncThunk(
-  "getNews",  //? type
+  "getNews", //? type
 
   async () => {
-  //? api istek fonksiyonu
-  const API_KEY = "1a1a999e0d7240a6bd2dead87bcca78e"
-  const url = `https://newsapi.org/v2/top-headlines?country=tr&apiKey=${API_KEY}`
-  const data = await axios(url)
-  console.log(data.data.articles);
-  return data.data.articles
-}
+    //? api istek fonksyionu
+    const API_KEY = "4c8668fd0dd8484f806177962a8c7b82"
+    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
+    const data = await axios(url)
+    console.log(data.data.articles)
+    return data.data.articles
+  }
 )
 
 const newApiSlice = createSlice({
@@ -30,20 +30,20 @@ const newApiSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    .addCase(getNewsData.pending, (state) => {
-      state.loading = true
-    })
-    .addCase(getNewsData.fulfilled, (state, action) => {
-      state.loading =  false
-      state.newsData = action.payload
-    })
-    .addCase(getNewsData.rejected, (state) => {
-      state.loading = false
-      state.error = true
-    })
-  }
-});
+      .addCase(getNewsData.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(getNewsData.fulfilled, (state, action) => {
+        state.loading = false
+        state.newsData = action.payload
+      })
+      .addCase(getNewsData.rejected, (state) => {
+        state.loading = false
+        state.error = true
+      })
+  },
+})
 
-export const {clearNewsData} = newApiSlice.actions
+export const { clearNewsData } = newApiSlice.actions
 
 export default newApiSlice.reducer
