@@ -5,8 +5,17 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { CardMedia } from "@mui/material";
+import { useEffect } from "react";
+import { getNewsData } from "../features/newApiSlice";
+import {useDispatch} from "react-redux"
 
 const News = () => {
+  const dispatch = useDispatch()
+  //? News componenti DOM'a basildiktan hemen sonra API istegini baslat
+  useEffect(() => {
+    dispatch(getNewsData())
+  }, [])
+  
   return (
     <>
       <h1>NEWS</h1>
