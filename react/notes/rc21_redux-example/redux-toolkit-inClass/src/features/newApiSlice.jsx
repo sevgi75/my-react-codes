@@ -28,6 +28,15 @@ const newApiSlice = createSlice({
     clearNewsData: (state) => {
       state.newsData = []
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getNewsData.pending, (state) => {
+      state.loading = true
+    })
+    .addCase(getNewsData.fulfilled, (state, action) => {
+      state.loading =  false
+      state.newsData = action.payload
+    })
   }
 });
 
