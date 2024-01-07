@@ -30,7 +30,8 @@ const newApiSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getNewsData.pending, (state) => {
+    builder
+    .addCase(getNewsData.pending, (state) => {
       state.loading = true
     })
     .addCase(getNewsData.fulfilled, (state, action) => {
