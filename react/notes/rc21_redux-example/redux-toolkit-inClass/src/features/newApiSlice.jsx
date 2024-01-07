@@ -7,13 +7,12 @@ const initialState = {
   loading: false,
 }
 
-//4c8668fd0dd8484f806177962a8c7b82
 export const getNewsData = createAsyncThunk(
   "getNews",  //? type
 
   async () => {
   //? api istek fonksiyonu
-  const API_KEY = "4c8668fd0dd8484f806177962a8c7b82"
+  const API_KEY = "1a1a999e0d7240a6bd2dead87bcca78e"
   const url = `https://newsapi.org/v2/top-headlines?country=tr&apiKey=${API_KEY}`
   const data = await axios(url)
   console.log(data.data.articles);
