@@ -37,9 +37,13 @@ const newApiSlice = createSlice({
       state.loading =  false
       state.newsData = action.payload
     })
+    .addCase(getNewsData.rejected, (state) => {
+      state.loading = false
+      state.error = true
+    })
   }
 });
 
-export const {} = newApiSlice.actions
+export const {clearNewsData} = newApiSlice.actions
 
 export default newApiSlice.reducer
