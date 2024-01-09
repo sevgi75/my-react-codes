@@ -33,7 +33,8 @@ const authSlice = createSlice({
 
 export const {
   fetchStart, 
-  loginSuccess, 
+  loginSuccess,
+  registerSuccess, 
   fetchFail
 } = authSlice.actions
 
