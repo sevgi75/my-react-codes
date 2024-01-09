@@ -9,11 +9,12 @@ import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
 import { Button } from "@mui/material"
 import { Formik, Form } from "formik"
-import { object, string, number, date, InferType } from "yup"
+import { object, string } from "yup"
 import useAuthCalls from "../service/useAuthCalls"
 
 const Login = () => {
-  const {login} = useAuthCalls()
+  const { login } = useAuthCalls()
+
   const loginSchema = object({
     email: string()
       .email("Lütfen geçerli bir email giriniz")
@@ -30,7 +31,6 @@ const Login = () => {
         "Şifre en az bir özel karakter (@$!%*?&) içermelidir"
       ),
   })
-
   return (
     <Container maxWidth="lg">
       <Grid
@@ -81,7 +81,7 @@ const Login = () => {
               //? tost yapılabilr
             }}
           >
-            {({handleChange, values, touched, errors, handleBlur}) => (
+            {({ handleChange, values, touched, errors, handleBlur }) => (
               <Form>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
