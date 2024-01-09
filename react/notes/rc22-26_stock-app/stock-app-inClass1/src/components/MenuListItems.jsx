@@ -49,10 +49,10 @@ const MenuListItems = () => {
   return (
     <List>
       {icons.map((item, index) => (
-        <ListItem key={index} disablePadding onClick={() => navigate(item.url)}>
-          <ListItemButton>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.title} />
+        <ListItem  key={index} disablePadding onClick={() => navigate(item.url)}>
+          <ListItemButton sx={{":hover": {backgroundColor: "rgba(255,0,0,0.2)"}}}>
+            <ListItemIcon sx={{color: "white"}} >{item.icon}</ListItemIcon>
+            <ListItemText primary={item.title} sx={{color: "white"}} />
           </ListItemButton>
         </ListItem>
       ))}
