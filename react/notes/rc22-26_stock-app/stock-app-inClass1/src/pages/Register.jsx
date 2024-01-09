@@ -5,16 +5,13 @@ import LockIcon from "@mui/icons-material/Lock"
 import image from "../assets/result.svg"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
 import { Link } from "react-router-dom"
-
-import TextField from "@mui/material/TextField"
-import { Formik } from "formik"
 import RegisterForm, { registerSchema } from "../components/RegisterForm"
+import { Formik } from "formik"
 import useAuthCalls from "../service/useAuthCalls"
 
 const Register = () => {
-  const {register} = useAuthCalls()
+  const { register } = useAuthCalls()
 
   return (
     <Container maxWidth="lg">
@@ -55,20 +52,20 @@ const Register = () => {
           </Typography>
 
           <Formik
-          initialValues={{
-            username:"",
-            firstName:"",
-            lastName:"",
-            email:"",
-            password:"",
-          }}
-          validationSchema={registerSchema}
-          onSubmit={(values, actions) => {
-            register(values)
-            actions.RegisterForm()
-            actions.setSubmitting(false)
-          }}
-           component={(props) => <RegisterForm {...props} />}
+            initialValues={{
+              username: "",
+              firstName: "",
+              lastName: "",
+              email: "",
+              password: "",
+            }}
+            validationSchema={registerSchema}
+            onSubmit={(values, actions) => {
+              register(values)
+              actions.resetForm()
+              actions.setSubmitting(false)
+            }}
+            component={(props) => <RegisterForm {...props} />}
           ></Formik>
 
           <Box sx={{ textAlign: "center", mt: 2 }}>
