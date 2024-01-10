@@ -6,6 +6,10 @@ const initialState = {
   purchases: [],
   brands: [],
   firms: [],
+  sales: [],
+  categories: [],
+  loading: false,
+  error: false,
 }
 
 const stockSlice = createSlice({
