@@ -29,6 +29,6 @@ const stockSlice = createSlice({
   },
 })
 
-export const {getFirmsSuccess} = stockSlice.actions
+export const {fetchStart, getFirmsSuccess, fetchFail} = stockSlice.actions
 
 export default stockSlice.reducer
