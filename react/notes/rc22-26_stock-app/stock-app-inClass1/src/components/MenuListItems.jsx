@@ -60,7 +60,7 @@ const MenuListItems = () => {
         disablePadding 
         onClick={() => navigate(item.url)}>
           <ListItemButton>
-            <ListItemIcon sx={{ color: "white" }}>{item.icon}</ListItemIcon>
+            <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText primary={item.title}/>
           </ListItemButton>
         </ListItem>
