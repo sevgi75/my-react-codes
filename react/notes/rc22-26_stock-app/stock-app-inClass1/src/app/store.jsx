@@ -12,7 +12,7 @@ const persistedReducer = persistReducer(persistConfig, authReducer)
 
 const store = configureStore({
   reducer: {
-    auth: persistReducer,
+    auth: persistedReducer,
     // stock: stockReducer
   },
   devTools: process.env.NODE_ENV !== "production",
