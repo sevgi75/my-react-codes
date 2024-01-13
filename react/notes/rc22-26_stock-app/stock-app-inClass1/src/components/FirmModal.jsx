@@ -7,14 +7,12 @@ import { modalStyle } from '../styles/globalStyles';
 
 
 
-export default function FirmModal() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+export default function FirmModal({open, handleClose}) {
+  
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      
       <Modal
         open={open}
         onClose={handleClose}
