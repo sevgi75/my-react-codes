@@ -20,6 +20,12 @@ export default function FirmModal({open, handleClose}) {
     // setInfo({...info, [name]:value})
     setInfo({...info, [e.target.name]: e.target.value})
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    //? post işlemi
+    handleClose()
+  }
   
   console.log(info);
   return (
@@ -31,7 +37,14 @@ export default function FirmModal({open, handleClose}) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={modalStyle}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <Box 
+          sx={{ 
+            display: "flex",
+            flexDirection: "column", 
+            gap: 2 }} 
+            component="form"
+            onSubmit={handleSubmit}
+            >
             <TextField
               label="Firm Name"
               name="name"
@@ -39,7 +52,8 @@ export default function FirmModal({open, handleClose}) {
               type="text"
               variant="outlined"
               value={info.name}
-              onChange={handleChange}             
+              onChange={handleChange}
+              required             
            />
             <TextField
               label="Phone"
@@ -48,7 +62,8 @@ export default function FirmModal({open, handleClose}) {
               type="tel"
               variant="outlined"
               value={info.phone}
-              onChange={handleChange}             
+              onChange={handleChange}
+              required             
            />
             <TextField
               label="Adress"
@@ -57,7 +72,8 @@ export default function FirmModal({open, handleClose}) {
               type="text"
               variant="outlined"
               value={info.address}
-              onChange={handleChange}             
+              onChange={handleChange}
+              required             
            />
             <TextField
               label="Image"
@@ -66,7 +82,8 @@ export default function FirmModal({open, handleClose}) {
               type="url"
               variant="outlined"
               value={info.image}
-              onChange={handleChange}             
+              onChange={handleChange}
+              required             
            />
             <Button type="submit" variant="contained" size="large">
               Submit
