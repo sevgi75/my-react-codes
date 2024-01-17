@@ -3,14 +3,14 @@ import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import useStockCalls from "../service/useStockCalls";
 import { useSelector } from "react-redux";
-import { Grid } from "@mui/material";
 import ProductModal from "../components/ProductModal";
+import ProductTable from "../components/ProductTable";
 
 
 const Products = () => {
   // const {getFirms, getSales} = useStockCalls()
   const {getStocks} = useStockCalls()
-  const {firms} = useSelector((state) => state.stock)
+  const {products} = useSelector((state) => state.stock)
 
   const [info, setInfo] = useState({
     "name": "",
@@ -27,19 +27,16 @@ const Products = () => {
   };
 
   useEffect(() => {
-    // getFirms()
-    // getSales()
-    getStocks("firms")
-    
-    
+    getStocks("products")
+     
   }, [])
 
-  console.log(firms);
+ 
   
     return (
       <div>
-        <Typography variant="h4" color="error">Firms</Typography>
-        <Button variant="contained" onClick={handleOpen}>New Firm</Button>
+        <Typography variant="h4" color="error">Products</Typography>
+        <Button variant="contained" onClick={handleOpen}>New Product</Button>
         <ProductModal 
         open={open} 
         handleClose={handleClose}
@@ -47,7 +44,7 @@ const Products = () => {
         setInfo={setInfo} 
         />
         
-        
+        <ProductTable />
       </div>
     )
   }
