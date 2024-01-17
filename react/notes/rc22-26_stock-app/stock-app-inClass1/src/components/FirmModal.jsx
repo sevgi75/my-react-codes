@@ -8,13 +8,8 @@ import TextField from '@mui/material/TextField';
 
 
 
-export default function FirmModal({open, handleClose}) {
-  const [info, setInfo] = useState({
-    "name": "",
-    "phone": "",
-    "address": "",
-    "image": "",
-  })
+export default function FirmModal({open, handleClose, info, setInfo}) {
+  
   const handleChange = (e) => {
     // const {name, value} = e.target
     // setInfo({...info, [name]:value})
