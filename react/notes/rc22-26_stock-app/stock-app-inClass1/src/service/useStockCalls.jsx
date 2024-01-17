@@ -64,8 +64,19 @@ const useStockCalls = () => {
             toastErrorNotify( `${url} kaydi eklenememiştir.`)
         }
     }
+    const putStock = async (url = "firms", id, info) => {
+        dispatch(fetchStart())
+        try {
+            await axiosWithToken.put(`/${url}/${id}`, info)
+            toastSuccessNotify( `${url} kayidi güncellenmiştir.`)
+            getStocks(url)
+        } catch (error) {
+            dispatchEvent(fetchFail())
+            toastErrorNotify( `${url} kaydi güncellenememiştir.`)
+        }
+    }
   
-    return {getStocks, deleteStock, postStock}
+    return {getStocks, deleteStock, postStock, putStock}
   
 }
 
