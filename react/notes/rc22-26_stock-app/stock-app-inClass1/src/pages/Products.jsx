@@ -28,7 +28,8 @@ const Products = () => {
 
   useEffect(() => {
     getStocks("products")
-     
+    getStocks("categories")
+    getStocks("brands") 
   }, [])
 
  
@@ -36,7 +37,7 @@ const Products = () => {
     return (
       <div>
         <Typography variant="h4" color="error">Products</Typography>
-        <Button variant="contained" onClick={handleOpen}>New Product</Button>
+        <Button variant="contained" onClick={handleOpen} sx={{mb: 3}}>New Product</Button>
         <ProductModal 
         open={open} 
         handleClose={handleClose}
