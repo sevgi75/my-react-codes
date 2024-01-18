@@ -6,12 +6,13 @@ import { useSelector } from "react-redux";
 import { Grid } from "@mui/material";
 import FirmCard from "../components/FirmCard";
 import FirmModal from "../components/FirmModal";
+import TableSkeleton, { CardSkeleton, ErrorMsg, NoDataMsg } from "../components/DataFetchMsg";
 
 
 const Firms = () => {
   // const {getFirms, getSales} = useStockCalls()
   const {getStocks} = useStockCalls()
-  const {firms} = useSelector((state) => state.stock)
+  const {firms, error, loading} = useSelector((state) => state.stock)
 
   const [info, setInfo] = useState({
     "name": "",
@@ -35,7 +36,7 @@ const Firms = () => {
     
   }, [])
 
-  console.log(firms);
+  // console.log(firms);
   
     return (
       <div>
@@ -47,13 +48,23 @@ const Firms = () => {
         info={info}
         setInfo={setInfo} 
         />
-        <Grid container gap={2} mt={3} justifyContent={"center"}>
+        {error && <ErrorMsg />}
+        {loading && (
+        <CardSkeleton>
+          <FirmCard />
+        </CardSkeleton>
+        )}
+
+        {!error && !loading && !firms.length && <NoDataMsg />}
+
+        {!loading && !error && firms.length > 0 && (<Grid container gap={2} mt={3} justifyContent={"center"}>
           {firms?.map((firm) => (
             <Grid item key={firm._id}>
               <FirmCard firm={firm} handleOpen={handleOpen} setInfo={setInfo} />
             </Grid>
           ))}
-        </Grid>
+        </Grid>)}
+        
       </div>
     )
   }
