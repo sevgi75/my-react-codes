@@ -1,4 +1,4 @@
-import { Alert, Typography } from "@mui/material"
+import { Alert, Skeleton, Stack } from "@mui/material"
 
 export const ErrorMsg = () => {
     return (
@@ -12,10 +12,15 @@ export const NoDataMsg = () => {
     )
 }
 
-const DataFetchMsg = () => {
+const TableSkeleton = () => {
   return (
-    <div>DataFetchMsg</div>
+    <Stack spacing={1}>
+      <Skeleton variant="rectangular" width="100%" height={60} />
+      <Skeleton variant="rectangular" width="100%" height={40} />
+      <Skeleton variant="rectangular" width="100%" height={40} />
+      <Skeleton variant="rectangular" width="100%" height={40} />
+    </Stack>
   )
 }
 
-export default DataFetchMsg
+export default TableSkeleton

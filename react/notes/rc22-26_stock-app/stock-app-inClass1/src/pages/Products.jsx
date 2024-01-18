@@ -5,7 +5,7 @@ import useStockCalls from "../service/useStockCalls";
 import { useSelector } from "react-redux";
 import ProductModal from "../components/ProductModal";
 import ProductTable from "../components/ProductTable";
-import { ErrorMsg, NoDataMsg } from "../components/DataFetchMsg";
+import TableSkeleton, { ErrorMsg, NoDataMsg } from "../components/DataFetchMsg";
 
 
 const Products = () => {
@@ -40,8 +40,11 @@ const Products = () => {
         setInfo={setInfo} 
         />
         {error && <ErrorMsg />}
-        {!error && !products.lenght && <NoDataMsg />}
-        {!error && <ProductTable />}
+        {loading && <TableSkeleton />}
+
+        {!error && !loading && !products.length && <NoDataMsg />}
+
+        {!loading && !error && products.length > 0 && <ProductTable />}
       </div>
     )
   }
