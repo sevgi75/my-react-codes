@@ -42,21 +42,28 @@ const useStockCalls = () => {
         }
     }
 
-    const getProPurBranFirm = async() => {
+    const getProPurBranFirm = async () => {
         dispatch(fetchStart())
         try {
-           const [products, purchases, brands, firms] = await Promise.all([
-           axiosWithToken("/products/"), 
-           axiosWithToken("/purchases/"), 
-           axiosWithToken("/brands/"), 
-           axiosWithToken("/firms/"), 
-        ])
-        dispatch(getProPurBranFirmSuccess([products?.data, purchases?.data, brands?.data, firms?.data]))  
+          const [products, purchases, brands, firms] = await Promise.all([
+            axiosWithToken("/products/"),
+            axiosWithToken("/purchases/"),
+            axiosWithToken("/brands/"),
+            axiosWithToken("/firms/"),
+          ])
+          dispatch(
+            getProPurBranFirmSuccess([
+              products?.data?.data,
+              purchases?.data?.data,
+              brands?.data?.data,
+              firms?.data?.data,
+            ])
+          )
         } catch (error) {
-            dispatchEvent(fetchFail()) 
+          dispatch(fetchFail())
         }
-        
-    }
+      }
+    
 
     const deleteStock = async (url = "firms", id) => {
         dispatch(fetchStart())

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-  firms: [],
   products: [],
   purchases: [],
   brands: [],
@@ -9,6 +8,7 @@ const initialState = {
   categories: [],
   loading: false,
   error: false,
+  firms: [],
 }
 
 const stockSlice = createSlice({
@@ -36,11 +36,13 @@ const stockSlice = createSlice({
       state.loading = false
       state.error = false
     },
-    getProPurBranFirmSuccess: (state, {payload}) => {
+    getProPurBranFirmSuccess: (state, { payload }) => {
+      state.loading = false
       state.products = payload[0]
       state.purchases = payload[1]
       state.brands = payload[2]
       state.firms = payload[3]
+      state.error = false
     },
 
     fetchFail: (state) => {
