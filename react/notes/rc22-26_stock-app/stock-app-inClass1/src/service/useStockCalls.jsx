@@ -42,6 +42,21 @@ const useStockCalls = () => {
         }
     }
 
+    const getProPurBranFirm = async() => {
+        dispatch(fetchStart())
+        try {
+           const [products, purchases, brands, firms] = await Promise.all([
+           axiosWithToken("/products/"), 
+           axiosWithToken("/purchases/"), 
+           axiosWithToken("/brands/"), 
+           axiosWithToken("/firms/"), 
+        ])  
+        } catch (error) {
+            dispatchEvent(fetchFail()) 
+        }
+        
+    }
+
     const deleteStock = async (url = "firms", id) => {
         dispatch(fetchStart())
         try {
@@ -76,7 +91,7 @@ const useStockCalls = () => {
         }
     }
   
-    return {getStocks, deleteStock, postStock, putStock}
+    return {getStocks, deleteStock, postStock, putStock, getProPurBranFirm}
   
 }
 

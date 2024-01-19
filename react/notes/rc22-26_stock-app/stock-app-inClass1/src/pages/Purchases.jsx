@@ -28,12 +28,12 @@ const Purchases = () => {
   }
 
   useEffect(() => {
-    getStocks("products")
-    getStocks("purchases")
-    getStocks("brands")
-    getStocks("firms")
+    // getStocks("products")
+    // getStocks("purchases")
+    // getStocks("brands")
+    // getStocks("firms")
 
-    // getProPurBranFirm()
+    getProPurBranFirm()
   }, []) // eslint-disable-line
 
   return (
