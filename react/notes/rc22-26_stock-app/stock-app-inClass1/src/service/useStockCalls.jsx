@@ -1,4 +1,4 @@
-import { fetchFail, fetchStart, getStockSuccess } from "../features/stockSlice"
+import { fetchFail, fetchStart, getProPurBranFirmSuccess, getStockSuccess } from "../features/stockSlice"
 import useAxios from "./useAxios";
 import {toastErrorNotify, toastSuccessNotify} from "../helper/ToastNotify"
 import { useDispatch } from "react-redux";
@@ -50,7 +50,8 @@ const useStockCalls = () => {
            axiosWithToken("/purchases/"), 
            axiosWithToken("/brands/"), 
            axiosWithToken("/firms/"), 
-        ])  
+        ])
+        dispatch(getProPurBranFirmSuccess([products?.data, purchases?.data, brands?.data, firms?.data]))  
         } catch (error) {
             dispatchEvent(fetchFail()) 
         }
