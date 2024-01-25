@@ -155,3 +155,51 @@ function error(message:string): never {
 }
 
 console.log(error("Hata Olustu"));
+
+//& Union Type
+
+let abc: number | string = 0
+
+// abc = "hello"
+
+// abc = true
+
+//? Type Narrowing
+
+function checkNumber(n:string | number):void{
+    if(typeof n == "string"){
+
+    }else{
+
+    }
+}
+
+//& Type Aliases
+
+/* type StrNum = String | Number
+
+let sumValue: StrNum = 0
+sumValue = 'Hello'
+// sumValue = false
+
+console.log(sumValue.length)
+
+function checkNumber2 (n: StrNum ):void{
+
+    
+    if(typeof n == 'string'){
+        
+    }else{
+        
+    }
+} */
+
+//&  String Literals
+
+type Car = 'BMW' | 'Mercedes' | 'Ferrari'
+
+
+let car1: Car = 'Mercedes'
+// let car2: Car = 'fiat'
+// let car3: Car = 'Audi'
+let car4: Car = 'Ferrari'
