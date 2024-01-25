@@ -44,20 +44,81 @@
 
 //& Tuples
 
-let myTuple: [number,string]
+// let myTuple: [number,string]
 
-myTuple = [1, "Sevgi"]
+// myTuple = [1, "Sevgi"]
 
-console.log(myTuple);
+// console.log(myTuple);
 
-myTuple.push(false)
-myTuple.push("Hello")
+// myTuple.push(false)
+// myTuple.push("Hello")
 
 //& Array of Tuples
 
-let arrTuple: [number,string][] = []
+// let arrTuple: [number,string][] = []
 
-arrTuple.push([1,"Sevgi"])
-arrTuple.push([2,"Enes"])
+// arrTuple.push([1,"Sevgi"])
+// arrTuple.push([2,"Enes"])
 
-console.log(arrTuple);
+// console.log(arrTuple);
+
+//& Enums
+
+const enum Role{
+    User, //0
+    Admin //1 
+}
+
+let currentUser:Role = Role.User
+
+console.log(currentUser);
+
+enum StatusCodes {
+    NotFound = 404,
+    Success = 200,
+    Accepted = 202,
+    BadRequest = NotFound - 4,
+   
+}
+
+const request: StatusCodes = StatusCodes.Success
+
+//? String Enums
+enum Tshirts {
+    Small = "S",
+    Medium = "M",
+    Large = "L"
+}
+
+let size: Tshirts = Tshirts.Large
+
+//? Mixed enum
+enum Tshirts2 {
+    Small = "S",
+    Medium = "M",
+    Large = "L",
+    XLarge = 42,
+    XXlarge, //43
+    XXXLarge = XLarge + 4,
+    XXXXLarge  //47
+}
+
+//? Deger atamasi icin fonksiyon kullanimi
+
+enum PrintMedia {
+    Newspaper = 1,
+    Newsletter = getPrintMediaCode("newsletter"),
+    Magazine = Newsletter * 3,
+    Book = 10
+}
+
+function getPrintMediaCode(mediaName:string): number {
+    if (mediaName === "newsletter") {
+        return 5;
+    }
+}
+
+PrintMedia.Newsletter; // returns 5
+PrintMedia.Magazine; // returns 15
+
+PrintMedia["Magazine"]  // returns 15
