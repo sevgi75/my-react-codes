@@ -64,61 +64,94 @@
 
 //& Enums
 
-const enum Role{
-    User, //0
-    Admin //1 
-}
+// const enum Role{
+//     User, //0
+//     Admin //1 
+// }
 
-let currentUser:Role = Role.User
+// let currentUser:Role = Role.User
 
-console.log(currentUser);
+// console.log(currentUser);
 
-enum StatusCodes {
-    NotFound = 404,
-    Success = 200,
-    Accepted = 202,
-    BadRequest = NotFound - 4,
+// enum StatusCodes {
+//     NotFound = 404,
+//     Success = 200,
+//     Accepted = 202,
+//     BadRequest = NotFound - 4,
    
-}
+// }
 
-const request: StatusCodes = StatusCodes.Success
+// const request: StatusCodes = StatusCodes.Success
 
 //? String Enums
-enum Tshirts {
-    Small = "S",
-    Medium = "M",
-    Large = "L"
-}
-
-let size: Tshirts = Tshirts.Large
 
 //? Mixed enum
-enum Tshirts2 {
-    Small = "S",
-    Medium = "M",
-    Large = "L",
-    XLarge = 42,
-    XXlarge, //43
-    XXXLarge = XLarge + 4,
-    XXXXLarge  //47
-}
+// enum Tshirts2 {
+//     Small = "S",
+//     Medium = "M",
+//     Large = "L",
+//     XLarge = 42,
+//     XXlarge, //43
+//     XXXLarge = XLarge + 4,
+//     XXXXLarge  //47
+// }
 
 //? Deger atamasi icin fonksiyon kullanimi
 
-enum PrintMedia {
-    Newspaper = 1,
-    Newsletter = getPrintMediaCode("newsletter"),
-    Magazine = Newsletter * 3,
-    Book = 10
+// enum PrintMedia {
+//     Newspaper = 1,
+//     Newsletter = getPrintMediaCode("newsletter"),
+//     Magazine = Newsletter * 3,
+//     Book = 10
+// }
+
+// function getPrintMediaCode(mediaName:string): number {
+//     if (mediaName === "newsletter") {
+//         return 5;
+//     }
+// }
+
+//PrintMedia.Newsletter; // returns 5
+//PrintMedia.Magazine; // returns 15
+
+//PrintMedia["Magazine"]  // returns 15
+
+//& Any Types
+
+// let anyVar: any = 5
+
+// anyVar = "Hello"
+// anyVar = true
+
+// let abc : boolean = anyVar
+// console.log(abc);
+
+//& Unknown Types
+
+// let ukn: unknown = 5
+
+// ukn = "Hello"
+// ukn = true
+
+// let abc : boolean = ukn as boolean
+// let abd : boolean = ukn
+
+// let any2: any = ukn // unknown sadece any ye atanabilir
+
+//& Void
+
+function greet(): void{ //?Void bir sey return etmeyen fonfsiyonlar icin kullandigimiz donus tipi belirteci
+    console.log("Hello");
+
+    // return "Hello World"
 }
 
-function getPrintMediaCode(mediaName:string): number {
-    if (mediaName === "newsletter") {
-        return 5;
-    }
+let a = greet()
+
+//& Never
+
+function error(message:string): never {
+    throw new Error(message);
 }
 
-PrintMedia.Newsletter; // returns 5
-PrintMedia.Magazine; // returns 15
-
-PrintMedia["Magazine"]  // returns 15
+console.log(error("Hata Olustu"));
