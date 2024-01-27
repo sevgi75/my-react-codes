@@ -140,25 +140,25 @@
 
 //& Void
 
-function greet(): void{ //?Void bir sey return etmeyen fonfsiyonlar icin kullandigimiz donus tipi belirteci
-    console.log("Hello");
+// function greet(): void{ //?Void bir sey return etmeyen fonfsiyonlar icin kullandigimiz donus tipi belirteci
+//     console.log("Hello");
 
-    // return "Hello World"
-}
+//     // return "Hello World"
+// }
 
-let a = greet()
+// let a = greet()
 
 //& Never
 
-function error(message:string): never {
-    throw new Error(message);
-}
+// function error(message:string): never {
+//     throw new Error(message);
+// }
 
-console.log(error("Hata Olustu"));
+// console.log(error("Hata Olustu"));
 
 //& Union Type
 
-let abc: number | string = 0
+// let abc: number | string = 0
 
 // abc = "hello"
 
@@ -166,13 +166,13 @@ let abc: number | string = 0
 
 //? Type Narrowing
 
-function checkNumber(n:string | number):void{
-    if(typeof n == "string"){
+// function checkNumber(n:string | number):void{
+//     if(typeof n == "string"){
 
-    }else{
+//     }else{
 
-    }
-}
+//     }
+// }
 
 //& Type Aliases
 
@@ -196,10 +196,32 @@ function checkNumber2 (n: StrNum ):void{
 
 //&  String Literals
 
-type Car = 'BMW' | 'Mercedes' | 'Ferrari'
+// type Car = 'BMW' | 'Mercedes' | 'Ferrari'
 
 
-let car1: Car = 'Mercedes'
+// let car1: Car = 'Mercedes'
 // let car2: Car = 'fiat'
 // let car3: Car = 'Audi'
-let car4: Car = 'Ferrari'
+// let car4: Car = 'Ferrari'
+
+//& Intersection
+
+const car: {
+    type: string,
+    model?: string,
+    readonly year: number,
+    age(year: number):void,
+    sunroof: boolean,
+} = {
+    type: "Toyota",
+    year: 2020,
+    // model: "Corolla",
+    sunroof: false,
+    age(year:number):void{
+        console.log(`Age is ${year - 2009}`);
+    }
+}
+
+car.age(2024)
+
+car.year = 2019
