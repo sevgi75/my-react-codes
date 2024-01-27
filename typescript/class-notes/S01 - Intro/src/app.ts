@@ -206,22 +206,57 @@ function checkNumber2 (n: StrNum ):void{
 
 //& Intersection
 
-const car: {
-    type: string,
-    model?: string,
-    readonly year: number,
-    age(year: number):void,
-    sunroof: boolean,
-} = {
-    type: "Toyota",
-    year: 2020,
-    // model: "Corolla",
-    sunroof: false,
-    age(year:number):void{
-        console.log(`Age is ${year - 2009}`);
-    }
-}
+// const car: {
+//     type: string,
+//     model?: string,
+//     readonly year: number,
+//     age(year: number):void,
+//     sunroof: boolean,
+// } = {
+//     type: "Toyota",
+//     year: 2020,
+//     // model: "Corolla",
+//     sunroof: false,
+//     age(year:number):void{
+//         console.log(`Age is ${year - 2009}`);
+//     }
+// }
 
-car.age(2024)
+// car.age(2024)
 
-car.year = 2019
+// car.year = 2019
+
+// type Book = {
+//     book_id: number;
+//     book_name: string;
+// }
+
+// type Author = {
+//     Author_Id: number;
+//     Author_Name: string;
+//     other_books: string[]
+// }
+
+// type Product = Book & Author
+
+// let book1: Product ={
+//     book_id:1234,
+//     book_name: "Lord of the Rings",
+//     Author_Id: 1892,
+//     Author_Name: "JRR Tolkien",
+//     other_books:["Hobit"]
+// }
+
+// let author1: Author ={
+//     Author_Id: 1892,
+//     Author_Name: "JRR Tolkien",
+//     other_books:["Hobit"]
+// }
+
+//& Type Assertions
+
+// let score : unknown = "350"
+
+// console.log((<String>score).split(""));
+
+// console.log((score as string).length);
