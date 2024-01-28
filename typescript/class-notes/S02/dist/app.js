@@ -1,34 +1,23 @@
-//& Classes
-// class Employee {
-//     empCode: number;
-//     empName: string;
-//     constructor (code:number, name:string){
-//         this.empCode = code;
-//         this.empName = name;
-//     }
-// }
-// let emp1 = new Employee(1, "Sevgi")
-// // let emp2 = new Employee("Sevgi",2)
-// let emp3 = new Employee(2, "Ebrar")
-// console.log(emp3.empCode);
-//& Inheritance
-class Person {
-    constructor(name) {
-        this.name = name;
+class Vehicle {
+    constructor(year, color) {
+        this.year = year;
+        this.color = color;
     }
-    greet() {
-        console.log(`Merhaba ${this.name}`);
+    startEngine() {
+        console.log(`Motor Calisti`);
     }
 }
-class Employee extends Person {
-    constructor(emplyCode, name) {
-        super(name);
-        this.emplyCode = emplyCode;
+class Car extends Vehicle {
+    constructor(year, color, model, numOfDoors) {
+        super(year, color);
+        this.model = model;
+        this.numOfDoors = numOfDoors;
+    }
+    stopEngine() {
+        console.log("Motor Durduruldu");
     }
 }
-let person1 = new Person("Sevgi");
-console.log(person1.name);
-let emp4 = new Employee(100, "Enes");
-console.log(emp4.name);
-person1.greet();
-emp4.greet();
+let car1 = new Car(1990, "Siyah", "Fiat", 4);
+console.log(car1);
+car1.startEngine();
+car1.stopEngine();
