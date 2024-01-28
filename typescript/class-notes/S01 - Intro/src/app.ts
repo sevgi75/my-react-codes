@@ -260,3 +260,35 @@ function checkNumber2 (n: StrNum ):void{
 // console.log((<String>score).split(""));
 
 // console.log((score as string).length);
+
+//& Functions
+
+function selam (mesaj: string, isim: string): string{
+
+    return `${mesaj+" "+isim}`
+}
+
+console.log(selam("Merhaba", "Enes"));
+console.log(selam("Merhaba", "Enes", "Ebrar"));
+
+function selam2 (mesaj: string, isim: string): void{
+
+    console.log(`${mesaj+" "+isim}`)
+}
+
+selam2("Merhaba", "Enes")
+
+let getResult = (username:string, points: number):string => {
+    return `Hello ${username + points}`
+}
+
+//? optional parameters
+
+function selam3 (mesaj: string, isim?: string): string{
+
+    if(!isim) isim = "user"
+    return `${mesaj+" "+isim}`
+}
+
+console.log(selam3("Merhaba", "Enes"));
+console.log(selam3("Merhaba"));
