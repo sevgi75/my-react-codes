@@ -1,6 +1,5 @@
-function add(a, b) {
-    return a + b;
+function selam4(mesaj, ...isim) {
+    return `${mesaj + " " + isim.join(",") + "!"}`;
 }
-console.log(add(2, 3));
-console.log(add("Hello", "World"));
-console.log(add("Hello", 2));
+console.log(selam4("Merhaba", "Enes"));
+console.log(selam4("Merhaba", "Enes", "Ebrar", "Canan", "Can"));

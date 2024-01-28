@@ -305,3 +305,13 @@ function checkNumber2 (n: StrNum ):void{
 // console.log(add(2,3));
 // console.log(add("Hello","World"));
 // console.log(add("Hello",2));
+
+//? Rest parameters
+
+function selam4 (mesaj: string, ...isim: string[]): string{
+
+    return `${mesaj+" "+isim.join(",")+"!"}`
+}
+
+console.log(selam4("Merhaba", "Enes"));
+console.log(selam4("Merhaba", "Enes", "Ebrar", "Canan", "Can"));
