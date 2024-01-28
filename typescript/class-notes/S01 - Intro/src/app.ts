@@ -263,32 +263,45 @@ function checkNumber2 (n: StrNum ):void{
 
 //& Functions
 
-function selam (mesaj: string, isim: string): string{
+// function selam (mesaj: string, isim: string): string{
 
-    return `${mesaj+" "+isim}`
-}
+//     return `${mesaj+" "+isim}`
+// }
 
-console.log(selam("Merhaba", "Enes"));
-console.log(selam("Merhaba", "Enes", "Ebrar"));
+// console.log(selam("Merhaba", "Enes"));
+// console.log(selam("Merhaba", "Enes", "Ebrar"));
 
-function selam2 (mesaj: string, isim: string): void{
+// function selam2 (mesaj: string, isim: string): void{
 
-    console.log(`${mesaj+" "+isim}`)
-}
+//     console.log(`${mesaj+" "+isim}`)
+// }
 
-selam2("Merhaba", "Enes")
+// selam2("Merhaba", "Enes")
 
-let getResult = (username:string, points: number):string => {
-    return `Hello ${username + points}`
-}
+// let getResult = (username:string, points: number):string => {
+//     return `Hello ${username + points}`
+// }
 
 //? optional parameters
 
-function selam3 (mesaj: string, isim?: string): string{
+// function selam3 (mesaj: string, isim?: string): string{
 
-    if(!isim) isim = "user"
-    return `${mesaj+" "+isim}`
-}
+//     if(!isim) isim = "user"
+//     return `${mesaj+" "+isim}`
+// }
 
-console.log(selam3("Merhaba", "Enes"));
-console.log(selam3("Merhaba"));
+// console.log(selam3("Merhaba", "Enes"));
+// console.log(selam3("Merhaba"));
+
+//? overloading
+
+// function add(a:string,b:number):string;
+// function add(a:string,b:string):string;
+// function add(a:number,b:number):number;
+// function add(a:any, b:any):any{
+//     return a+b
+// }
+
+// console.log(add(2,3));
+// console.log(add("Hello","World"));
+// console.log(add("Hello",2));
