@@ -12,14 +12,20 @@ interface ITodoType {
     todo?: string;
 }
 
+const url:string = import.meta.env.VITE_BASE_URL;
+
 const Home = () => {
-    const [todos, setTodos] = useState([])
+    // const [todos,setTodos] = useState<[] as ITodoType>([]) //! type tanımlaması 1.yol
+  // const [todos,setTodos] = useState<Array<ITodoType>>([])//* type tanımlaması 2.yol
+  const [todos, setTodos] = useState<ITodoType[]>([]); //? type tanımlaması 3.yol ve yaygın kullanım
 
     const getTodos = async () =>{
         try {
-            const {data} = await axios("")
+            const {data} = await axios.get<ITodoType[]>(url)
+            setTodos(data)
+            console.log(data);
         } catch (error) {
-            
+            console.log(error);
         }
     }
   return (
