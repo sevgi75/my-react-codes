@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from "@mui/material/Container"
 import Typography from "@mui/material/Typography"
 import AddTodoComp from '../components/AddTodoComp'
@@ -28,9 +28,13 @@ const Home = () => {
             console.log(error);
         }
     }
+
+    useEffect(() =>{
+        getTodos()
+    },[])
   return (
     <Container>
-        <Typography>TodoApp with Typescript</Typography>
+        <Typography color="error" align='center' variant='h2' component="h1">TodoApp with Typescript</Typography>
         <AddTodoComp />
         <TodoList />
     </Container>
